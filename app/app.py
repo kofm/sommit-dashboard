@@ -1,9 +1,8 @@
 import pandas as pd
 import plotly.express as px
 from dash import Dash, Input, Output, callback, dcc, html
-from dash_daq import GraduatedBar
 import dash_bootstrap_components as dbc
-from components import TocGauge, dropdown_factory, render_card_summary
+from components import dropdown_factory, render_card_summary
 
 # Read data
 sommit_data = pd.read_csv("sommit-data.csv")
