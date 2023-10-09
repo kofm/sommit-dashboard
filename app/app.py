@@ -12,7 +12,7 @@ df = pd.concat([sommit_data, mfa_ind_coord], axis=1)
 
 # App
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-app.title = "Sommit Dashboard"
+app.title = "Trade-off analysis"
 server = app.server
 
 
@@ -21,7 +21,7 @@ fields_to_filter = [
     ("Moist Regime", "moistRegime", "dropdown-moist"),
     ("Temperature Regime", "tempRegime", "dropdown-temp"),
     ("N input", "N_input", "dropdown-nitrogen"),
-    ("OM input", "OM_input_before", "dropdown-ominput"),
+    ("OM input", "OM_input_after", "dropdown-ominput"),
 ]
 
 filter_control = [
@@ -60,7 +60,7 @@ filter_control = [
 
 app.layout = dbc.Container(
     [
-        html.H1(children="Sommit Dashboard", className="display-1"),
+        html.H1(children="Trade-off analysis", className="display-1"),
         html.Div(children=filter_control),
         dbc.Row(
             [
@@ -104,7 +104,7 @@ def update_dist_plot(narrative, moist, temp, nitrogen, ominput, crops):
         {"column": "moistRegime", "value": moist},
         {"column": "tempRegime", "value": temp},
         {"column": "N_input", "value": nitrogen},
-        {"column": "OM_input_before", "value": ominput},
+        {"column": "OM_input_after", "value": ominput},
     ]
     mask = pd.Series([True] * len(df))
     for cond in conditions:
