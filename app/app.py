@@ -1,6 +1,7 @@
 import pandas as pd
 import plotly.express as px
 from dash import Dash, Input, Output, callback, dcc, html
+from dash_daq import GraduatedBar
 import dash_bootstrap_components as dbc
 from components import TocGauge, dropdown_factory, render_card_summary
 
@@ -48,7 +49,10 @@ filter_control = [
             [
                 html.Label("Crop"),
                 dcc.Dropdown(
-                    df["crop"].unique(), ["barley", "oat", "wheat", "durum wheat"], id="dropdown-crop", multi=True
+                    df["crop"].unique(),
+                    ["barley", "oat", "wheat", "durum wheat"],
+                    id="dropdown-crop",
+                    multi=True,
                 ),
             ]
         )
@@ -62,16 +66,12 @@ app.layout = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(children=dcc.Graph("dist-plot"), width=8),
-                dbc.Col(id="hover_summary"),
-            ]
-        ),
-        dbc.Row(
-            [
-                dbc.Col(TocGauge(id="c-gauge", label="C stock")),
-                dbc.Col(TocGauge(id="n2o-gauge", label="N2O emissions")),
-                dbc.Col(TocGauge(id="no3-gauge", label="NO3 emissions")),
-                dbc.Col(TocGauge(id="yield-gauge", label="Yield level")),
-                dbc.Col(TocGauge(id="sommit-gauge", label="Sommit Index")),
+                dbc.Col(
+                    [
+                        dbc.Row(dbc.Col(id="hover_summary")),
+                        dbc.Row(dbc.Col(id="hover_indicators")),
+                    ]
+                ),
             ]
         ),
     ]
@@ -79,11 +79,6 @@ app.layout = dbc.Container(
 
 
 @callback(
-    Output("c-gauge", "value"),
-    Output("n2o-gauge", "value"),
-    Output("no3-gauge", "value"),
-    Output("yield-gauge", "value"),
-    Output("sommit-gauge", "value"),
     Output("hover_summary", "children"),
     Input("dist-plot", "hoverData"),
     Input("dropdown-narrative", "value"),
@@ -92,15 +87,8 @@ def display_hover_data(hover_data, narrative):
     if hover_data:
         rown = hover_data["points"][0]["customdata"][0]
         row = df.iloc[rown]
-        card_summary = dbc.Row(render_card_summary(row), className="my-3 mx-1")
-        return (
-            row["CO2Q"],
-            row["N2OQ"],
-            row["NO3Q"],
-            row["YQ"],
-            row[narrative],
-            card_summary,
-        )
+        card_summary = dbc.Row(render_card_summary(row, narrative), className="my-3 mx-1")
+        return card_summary
 
 
 @callback(
@@ -135,15 +123,30 @@ def update_dist_plot(narrative, moist, temp, nitrogen, ominput, crops):
         color=narrative,
         opacity=0.7,
         range_color=[0.2, 0.8],
-        hover_data={
-            "ΣI_N0": ":.2f"
-        },
+        hover_data={"ΣI_N0": ":.2f"},
         custom_data=[
             df[mask].index,
         ],
     )
     fig.update_scenes(aspectmode="cube")
-    fig.update_traces(hovertemplate="ΣI_N0 %{marker.color:.2f}", selector=dict(type="scatter3d"))
+    fig.update_traces(
+        hovertemplate="ΣI_N0 %{marker.color:.2f}", selector=dict(type="scatter3d")
+    )
+    fig.update_scenes(
+        xaxis_showbackground=False,
+        yaxis_showbackground=False,
+        zaxis_showbackground=False,
+    )
+    fig.update_scenes(
+        xaxis_showspikes=False, yaxis_showspikes=False, zaxis_showspikes=False
+    )
+    fig.update_scenes(
+        xaxis_showticklabels=False,
+        yaxis_showticklabels=False,
+        zaxis_showticklabels=False,
+    )
+    fig.update_scenes(xaxis_visible=False, yaxis_visible=False, zaxis_visible=False)
+    fig.update_scenes(camera_eye_x=1, camera_eye_y=1, camera_eye_z=1)
     return fig
 
 
