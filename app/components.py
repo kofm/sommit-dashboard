@@ -4,8 +4,8 @@ from dash import dcc, html
 
 
 class TocGauge(GraduatedBar):
-    def __init__(self, value=None, max=1, step=0.01, *args, **kwargs) -> None:
-        super().__init__(value=value, max=max, step=step, *args, **kwargs)
+    def __init__(self, value=None, max=1, step=0.1, *args, **kwargs) -> None:
+        super().__init__(value=value, max=max, step=step, showCurrentValue=True, *args, **kwargs)
 
 
 def dropdown_factory(id, df, field, label):
@@ -38,10 +38,10 @@ def render_card_summary(row, narrative, selected=False):
         card_subtitle = html.H6("Selected", className="card-subtitle mb-2 text-muted")
 
     items_to_display = [
-        {"label": "Soil", "value": row["soilTexture"]},
-        {"label": "Organic N", "value": row["organic_N"]},
-        {"label": "Mineral N", "value": row["mineral_N"]},
-        {"label": "Irrigation", "value": row["irrigation"]},
+        {"label": "Soil texture", "value": row["soilTexture"]},
+        {"label": "Organic Nitrogen", "value": row["organic_N"]},
+        {"label": "Mineral Nitrogen", "value": row["mineral_N"]},
+        {"label": "Irrigation Type", "value": row["irrigation"]},
     ]
 
     card_list = html.Ul(
@@ -50,15 +50,15 @@ def render_card_summary(row, narrative, selected=False):
     )
 
     indicators_to_display = [
-        {"label": "C stock", "value": row["CO2Q"]},
+        {"label": "CO2 fluxes", "value": row["CO2Q"]},
         {"label": "N2O emissions", "value": row["N2OQ"]},
-        {"label": "NO3 runoff", "value": row["NO3Q"]},
+        {"label": "NO3 leaching", "value": row["NO3Q"]},
         {"label": "Yield", "value": row["YQ"]},
     ]
 
     card_indicators = dbc.Row(
         [
-            TocGauge(label=indicator["label"], value=indicator["value"])
+            TocGauge(label=indicator["label"], value=indicator["value"], color="#324151")
             for indicator in indicators_to_display
         ]
     )

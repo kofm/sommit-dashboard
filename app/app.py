@@ -18,17 +18,17 @@ server = app.server
 
 # Filter controls
 fields_to_filter = [
-    ("Moist Regime", "moistRegime", "dropdown-moist"),
+    ("Moisture Regime", "moistRegime", "dropdown-moist"),
     ("Temperature Regime", "tempRegime", "dropdown-temp"),
-    ("N input", "N_input", "dropdown-nitrogen"),
-    ("OM input", "OM_input_after", "dropdown-ominput"),
+    ("Nitrogen Input", "N_input", "dropdown-nitrogen"),
+    ("Organic Matter Input", "OM_input_after", "dropdown-ominput"),
 ]
 
 filter_control = [
     dbc.Row(
         dbc.Col(
             [
-                html.Label("Choose your Narrative"),
+                html.Label("Narrative"),
                 dcc.Dropdown(
                     ["ΣI_N0", "ΣI_N1", "ΣI_N2", "ΣI_N3"],
                     "ΣI_N0",
