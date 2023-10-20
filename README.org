@@ -1,0 +1,96 @@
+* Sommit Trade-offs Dashboard
+
+** Introduction
+
+The Sommit Trade-offs analysis dashboard is a web-based user interface (UI) for exploring the dataset released in: Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. (2023). Dataset of agronomic case-scenarios and workflow to compute the Î£ommit index (0.1). Zenodo. https://doi.org/10.5281/zenodo.10014452
+
+The dataset was generated taking into account over two milions agronomic case-scenarios relative to the Italian agricultural land and following IPCC Guidelines for National Greenhouse Gas Inventories - Tier 1 ([[https://www.ipcc-nggip.iges.or.jp/public/2019rf/vol4.html][2019 Refinement to the 2006 IPCC Guidelines for National Greenhouse Gas Inventories Volume 4 Agriculture, Forestry and Other Land Use]]) to calculate four trade-off components (i.e. soil organic carbon change, nitrous oxide emissions, nitrate nitrogen leaching, and crop yield) resulting from the interaction of varying management practices under different environmental conditions. A fuzzy logic based methodology was then used to derive the Sommit Index, which can be helpful in performing a cost-benefit analysis considering with respect to the trade-off components and based on a set of pre-defined arbitrary rules. In the implementation of the methodology that produced the dataset that can be explored with the present dashboard, four different sets of rules have been applied, corresponding to four different narratives, namely: balanced weighting scheme, young farmer, agrochemical company, EU Community Agricultural Policy agency.
+
+More details on the rules and data analysis will be found on the main paper "Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. A fuzzy logic evaluation of synergies and trade-offs between agricultural production and climate change mitigation" (currently submitted to /Journal of Cleaner Production/).
+
+** Installation
+
+*** Windows
+
+*** *nix-like systems (MacOS, Linux, etc.)
+
+** How to use the dashboard
+
+*** Comparative visualisation of multidimensional EMT distances between cases
+
+This dashboard present a 3D scatterplot visualization showcasing what we can simply call CEMG distances, synthesising four different aspects of agronomic case-scenarios: Environment (E), Management (M), and Trade-off components (T)
+
+*** How to interact with the dashboard
+
+**** TODO Specify that 0-cases combinations can occur with some specific filters
+That's becasue some combinations do not exist.
+
+*** Filters
+
+**** Narrative
+
+**** Environment
+
+*** Interacting with the plot
+
+**** Plot controls
+
+*** How to interpret the visualization
+
+- Points: Each point corresponds to a unique agronomic case-scenario
+  defined by crop, environment, management, and GHG fluxes, and the
+  Î£ommit index.
+- Distance between points: A greater distance between points indicates
+  higher variability or difference in the considered variables.
+- Colour coding: Points are colour-coded based on their rating provided
+  by the Î£ommit index, allowing for quick comparative analysis.
+
+This visualisation is designed as visual comparison tool of the
+considered cases based on the calculated EMT distances. For details on
+how the hyperplane was constructed and distances calculated see the
+methods section below. Viewers can quickly discern the degree of
+similarity between cases by observing their relative position on the
+scatterplot. This visualisation benefits non-experts, providing a visual
+aid to understand the variability in Environment, Management,
+and Trade-off components without delving into complex details.
+
+ 
+
+It enables viewers to intuitively understand and evaluate the
+differences in EMT distances between the various cases studied. The
+colour-coded points facilitate a quick and easy comparative analysis
+allowing viewers to infer the relative differences in the Sommit
+Index. Hovering a point with the mouse reveals more detailed data
+about the point in the right side panel.
+
+ 
+
+Focusing on the relative distances between the points allows to
+understand the differences in the combined variables. Use the colour
+coding as a quick reference to compare the ratings provided by the
+Î£ommit index. Remember that this visualisation is a high-level
+representation, and detailed analysis may require a deeper look into the
+individual variables and cases.
+
+ 
+
+**** TODO Specify that in the side panel the user can also view the relative TOCs
+
+** Methods
+
+*** Variables used
+
+*** Multiple Factor Analysis
+
+- Brief explanation
+- Grouping
+
+#+begin_src R
+  mfa <- MFA(
+    sommit_data,
+    group = c(4, 1, 5, 8),
+    type = c("s", "s", "n", "n"),
+    name.group = c("toc", "si", "env", "mgmt"),
+    graph = FALSE
+  )
+#+end_src
