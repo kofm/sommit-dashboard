@@ -3,6 +3,8 @@ import plotly.express as px
 from dash import Dash, Input, Output, callback, dcc, html
 import dash_bootstrap_components as dbc
 from components import dropdown_factory, render_card_summary
+from help import tab_help
+
 
 # Read data
 sommit_data = pd.read_csv("sommit-data.csv")
@@ -17,9 +19,12 @@ server = app.server
 
 
 # Filter controls
-fields_to_filter = [
+fields_to_filter_environment = [
     ("Moisture Regime", "moistRegime", "dropdown-moist"),
     ("Temperature Regime", "tempRegime", "dropdown-temp"),
+]
+
+fields_to_filter_management = [
     ("Nitrogen Input", "N_input", "dropdown-nitrogen"),
     ("Organic Matter Input", "OM_input_after", "dropdown-ominput"),
 ]
@@ -27,10 +32,9 @@ fields_to_filter = [
 filter_control = [
     dbc.Row(
         [
-            dbc.Col(width=3),
             dbc.Col(
                 [
-                    html.H2("Narrative"),
+                    html.H4("Narrative"),
                     dcc.Dropdown(
                         [
                             {"label": "Balanced", "value": "ΣI_N0"},
@@ -42,15 +46,21 @@ filter_control = [
                         id="dropdown-narrative",
                     ),
                 ],
-                className = "my-3"
             ),
-            dbc.Col(width=3),
         ]
     ),
     dbc.Row(
+        [ html.H4("Environment") ] +
         [
             dropdown_factory(id, df, field, label)
-            for label, field, id in fields_to_filter
+            for label, field, id in fields_to_filter_environment
+        ]
+    ),
+    dbc.Row(
+        [ html.H4("Management") ] +
+        [
+            dropdown_factory(id, df, field, label)
+            for label, field, id in fields_to_filter_management
         ]
     ),
     dbc.Row(
@@ -68,24 +78,35 @@ filter_control = [
     ),
 ]
 
-app.layout = dbc.Container(
-    [
-        html.H1(children="Trade-off analysis", className="display-1"),
-        html.Div(children=filter_control),
+tab_dashboard = [
         dbc.Row(
             [
-                dbc.Col(children=dcc.Graph("dist-plot"), width=8),
+                dbc.Col(children=filter_control, width = 2),
+                dbc.Col(children=dcc.Graph("dist-plot"), width=7),
                 dbc.Col(
                     [
                         dbc.Row(dbc.Col(id="hover_summary")),
                         dbc.Row(dbc.Col(id="hover_indicators")),
-                    ]
+                    ],
+                    width=3
                 ),
             ]
-        ),
+        )
+        ]
+
+tabs = dbc.Tabs(
+    [
+        dbc.Tab(tab_dashboard, label="Dashboard"),
+        dbc.Tab(tab_help, label="Help"),
     ]
 )
 
+app.layout = dbc.Container(
+    [
+        html.H1(children="Trade-offs analysis", className="display-1"),
+        html.Div(tabs, className="my-3"),
+    ]
+)
 
 @callback(
     Output("hover_summary", "children"),
@@ -96,7 +117,9 @@ def display_hover_data(hover_data, narrative):
     if hover_data:
         rown = hover_data["points"][0]["customdata"][0]
         row = df.iloc[rown]
-        card_summary = dbc.Row(render_card_summary(row, narrative), className="my-3 mx-1")
+        card_summary = dbc.Row(
+            render_card_summary(row, narrative), className="my-3 mx-1"
+        )
         return card_summary
 
 
@@ -130,6 +153,7 @@ def update_dist_plot(narrative, moist, temp, nitrogen, ominput, crops):
         y="Dim.2",
         z="Dim.3",
         color=narrative,
+        height=800,
         opacity=0.7,
         range_color=[0.2, 0.8],
         hover_data={"ΣI_N0": ":.2f"},

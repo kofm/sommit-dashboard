@@ -10,12 +10,12 @@ class TocGauge(GraduatedBar):
 
 def dropdown_factory(id, df, field, label):
     unique_vals = df[field].unique()
-    return dbc.Col(
+    return dbc.Row(dbc.Col(
         [
             html.Label(label),
             dcc.Dropdown(unique_vals, unique_vals[0], id=id, clearable=False),
         ]
-    )
+    ))
 
 
 def _render_list_item(label, value):
@@ -39,9 +39,11 @@ def render_card_summary(row, narrative, selected=False):
 
     items_to_display = [
         {"label": "Soil texture", "value": row["soilTexture"]},
+        {"label": "Soil tillage", "value": row["tillage_after"]},
+        {"label": "Irrigation Type", "value": row["irrigation"]},
         {"label": "Organic Nitrogen", "value": row["organic_N"]},
         {"label": "Mineral Nitrogen", "value": row["mineral_N"]},
-        {"label": "Irrigation Type", "value": row["irrigation"]},
+        {"label": "Crop residues", "value": row["crop_residues"]},
     ]
 
     card_list = html.Ul(
