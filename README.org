@@ -1,5 +1,7 @@
 * Sommit Trade-offs Dashboard
 
+⚠️⚠️⚠️ This software is in active development. Expect bugs and changes. ⚠️⚠️⚠️
+
 ** Introduction
 
 The Sommit Trade-offs analysis dashboard is a web-based user interface (UI) for exploring the dataset released in: Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. (2023). Dataset of agronomic case-scenarios and workflow to compute the Î£ommit index (0.1). Zenodo. https://doi.org/10.5281/zenodo.10014452
@@ -10,9 +12,28 @@ More details on the rules and data analysis will be found on the main paper "Cal
 
 ** Installation
 
+*** Pre-requisites
+
+You will need *Docker* and *Docker Compose* installed. Please refer to official install instructions for your system on the [[https://docs.docker.com/engine/install/][Docker website]]. You'll optionally need Git installed if you want to download the dashboard through git; you can also download this repository by clicking on the green button "Code", then "Download ZIP".
+
 *** Windows
 
-*** *nix-like systems (MacOS, Linux, etc.)
+1. [[https://github.com/kofm/sommit-dashboard/archive/refs/heads/main.zip][Download this repository]]. Alternatively you can clone the repository via PowerShell using the command =git clone https://github.com/kofm/sommit-dashboard=; if that's the case, skip to step 3.
+2. Extract the ZIP file in a directory of your liking.
+3. Inside the downloaded directory you will find a PowerShell script named =StartSommitDashboard.ps1=. Execute it by double clicking it.
+4. Wait for the installation to complete (it may take a few minutes). Then the dashboard can be reached using you favourite browser (Firefox, Edge, Chrome, ecc.) at the following URL http://localhost:5001
+   
+*** Unix-like systems (MacOS, Linux, etc.)
+
+On Unix-like systems, open your favourite terminal then issue the following commands (assuming that you've git installed):
+
+#+begin_src shell
+  git clone https://github.com/kofm/sommit-dashboard
+  cd sommit-dashboard
+  docker-compose up -d
+#+end_src
+
+That's it! Wait for the docker container to be built, then you can reach the container at the following URL http://localhost:5001
 
 ** How to use the dashboard
 
@@ -22,8 +43,9 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
 
 *** How to interact with the dashboard
 
-**** TODO Specify that 0-cases combinations can occur with some specific filters
 That's becasue some combinations do not exist.
+
+**** TODO Specify that 0-cases combinations can occur with some specific filters :noexport:
 
 *** Filters
 
@@ -37,44 +59,17 @@ That's becasue some combinations do not exist.
 
 *** How to interpret the visualization
 
-- Points: Each point corresponds to a unique agronomic case-scenario
-  defined by crop, environment, management, and GHG fluxes, and the
-  Î£ommit index.
-- Distance between points: A greater distance between points indicates
-  higher variability or difference in the considered variables.
-- Colour coding: Points are colour-coded based on their rating provided
-  by the Î£ommit index, allowing for quick comparative analysis.
+- Points: Each point corresponds to a unique agronomic case-scenario defined by crop, environment, management, and GHG fluxes, and the Sommit index.
+- Distance between points: A greater distance between points indicates higher variability or difference in the considered variables.
+- Colour coding: Points are colour-coded based on their rating provided by the Sommit index, allowing for quick comparative analysis.
 
-This visualisation is designed as visual comparison tool of the
-considered cases based on the calculated EMT distances. For details on
-how the hyperplane was constructed and distances calculated see the
-methods section below. Viewers can quickly discern the degree of
-similarity between cases by observing their relative position on the
-scatterplot. This visualisation benefits non-experts, providing a visual
-aid to understand the variability in Environment, Management,
-and Trade-off components without delving into complex details.
+This visualisation is designed as visual comparison tool of the considered cases based on the calculated EMT distances. For details on how the hyperplane was constructed and distances calculated see the methods section below. Viewers can quickly discern the degree of similarity between cases by observing their relative position on the scatterplot. This visualisation benefits non-experts, providing a visual aid to understand the variability in Environment, Management, and Trade-off components without delving into complex details.
 
- 
+It enables viewers to intuitively understand and evaluate the differences in EMT distances between the various cases studied. The colour-coded points facilitate a quick and easy comparative analysis allowing viewers to infer the relative differences in the Sommit Index. Hovering a point with the mouse reveals more detailed data about the point in the right side panel.
 
-It enables viewers to intuitively understand and evaluate the
-differences in EMT distances between the various cases studied. The
-colour-coded points facilitate a quick and easy comparative analysis
-allowing viewers to infer the relative differences in the Sommit
-Index. Hovering a point with the mouse reveals more detailed data
-about the point in the right side panel.
+Focusing on the relative distances between the points allows to understand the differences in the combined variables. Use the colour coding as a quick reference to compare the ratings provided by the Î£ommit index. Remember that this visualisation is a high-level representation, and detailed analysis may require a deeper look into the individual variables and cases.
 
- 
-
-Focusing on the relative distances between the points allows to
-understand the differences in the combined variables. Use the colour
-coding as a quick reference to compare the ratings provided by the
-Î£ommit index. Remember that this visualisation is a high-level
-representation, and detailed analysis may require a deeper look into the
-individual variables and cases.
-
- 
-
-**** TODO Specify that in the side panel the user can also view the relative TOCs
+**** TODO Specify that in the side panel the user can also view the relative TOCs :noexport:
 
 ** Methods
 
@@ -82,8 +77,8 @@ individual variables and cases.
 
 *** Multiple Factor Analysis
 
-- Brief explanation
-- Grouping
+- What is a MFA?
+- Grouping of variables
 
 #+begin_src R
   mfa <- MFA(
