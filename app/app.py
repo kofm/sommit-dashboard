@@ -26,16 +26,26 @@ fields_to_filter = [
 
 filter_control = [
     dbc.Row(
-        dbc.Col(
-            [
-                html.Label("Narrative"),
-                dcc.Dropdown(
-                    ["ΣI_N0", "ΣI_N1", "ΣI_N2", "ΣI_N3"],
-                    "ΣI_N0",
-                    id="dropdown-narrative",
-                ),
-            ]
-        )
+        [
+            dbc.Col(width=3),
+            dbc.Col(
+                [
+                    html.H2("Narrative"),
+                    dcc.Dropdown(
+                        [
+                            {"label": "Balanced", "value": "ΣI_N0"},
+                            {"label": "Young farmers", "value": "ΣI_N1"},
+                            {"label": "Agrochem corporation", "value": "ΣI_N2"},
+                            {"label": "CAP paying agency", "value": "ΣI_N3"},
+                        ],
+                        "ΣI_N0",
+                        id="dropdown-narrative",
+                    ),
+                ],
+                className = "my-3"
+            ),
+            dbc.Col(width=3),
+        ]
     ),
     dbc.Row(
         [
