@@ -1,6 +1,7 @@
 # Sommit Trade-offs Dashboard
 
-⚠️⚠️⚠️ This software is in active development. Expect bugs and changes. ⚠️⚠️⚠️
+⚠️⚠️⚠️ This software is in active development. Expect bugs and changes.
+⚠️⚠️⚠️
 
 ## Introduction
 
@@ -9,6 +10,8 @@ The Sommit Trade-offs analysis dashboard is a web-based user interface
 Pellis, G., Mongiano, G., & Bregaglio, S. (2023). Dataset of agronomic
 case-scenarios and workflow to compute the Î£ommit index (0.1). Zenodo.
 <https://doi.org/10.5281/zenodo.10014452>
+
+![](./sommit_dashboard.png)
 
 The dataset was generated taking into account over two milions agronomic
 case-scenarios relative to the Italian agricultural land and following
