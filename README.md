@@ -1,14 +1,14 @@
-# Sommit Trade-offs Dashboard
+# Σommit Trade-offs analysis dashboard
 
 ⚠️⚠️⚠️ This software is in active development. Expect bugs and changes.
 ⚠️⚠️⚠️
 
 ## Introduction
 
-The Sommit Trade-offs analysis dashboard is a web-based user interface
+The Σommit Trade-offs analysis dashboard is a web-based user interface
 (UI) for exploring the dataset released in: Calone, R., Fiore, A.,
 Pellis, G., Mongiano, G., & Bregaglio, S. (2023). Dataset of agronomic
-case-scenarios and workflow to compute the Î£ommit index (0.1). Zenodo.
+case-scenarios and workflow to compute the Σommit index (0.1). Zenodo.
 <https://doi.org/10.5281/zenodo.10014452>
 
 ![](./sommit_dashboard.png)
@@ -23,7 +23,7 @@ calculate four trade-off components (i.e. soil organic carbon change,
 nitrous oxide emissions, nitrate nitrogen leaching, and crop yield)
 resulting from the interaction of varying management practices under
 different environmental conditions. A fuzzy logic based methodology was
-then used to derive the Sommit Index, which can be helpful in performing
+then used to derive the Σommit Index, which can be helpful in performing
 a cost-benefit analysis considering with respect to the trade-off
 components and based on a set of pre-defined arbitrary rules. In the
 implementation of the methodology that produced the dataset that can be
@@ -46,8 +46,7 @@ You will need **Docker** and **Docker Compose** installed. Please refer
 to official install instructions for your system on the [Docker
 website](https://docs.docker.com/engine/install/). You\'ll optionally
 need Git installed if you want to download the dashboard through git;
-you can also download this repository by clicking on the green button
-\"Code\", then \"Download ZIP\".
+you can also download this repository via the GitHub interface
 
 ### Windows
 
@@ -59,7 +58,7 @@ you can also download this repository by clicking on the green button
     that\'s the case, skip to step 3.
 2.  Extract the ZIP file in a directory of your liking.
 3.  Inside the downloaded directory you will find a PowerShell script
-    named `StartSommitDashboard.ps1`{.verbatim}. Execute it by double
+    named `StartΣommitDashboard.ps1`{.verbatim}. Execute it by double
     clicking it.
 4.  Wait for the installation to complete (it may take a few minutes).
     Then the dashboard can be reached using you favourite browser
@@ -107,11 +106,11 @@ That\'s becasue some combinations do not exist.
 
 -   Points: Each point corresponds to a unique agronomic case-scenario
     defined by crop, environment, management, and GHG fluxes, and the
-    Sommit index.
+    Σommit index.
 -   Distance between points: A greater distance between points indicates
     higher variability or difference in the considered variables.
 -   Colour coding: Points are colour-coded based on their rating
-    provided by the Sommit index, allowing for quick comparative
+    provided by the Σommit index, allowing for quick comparative
     analysis.
 
 This visualisation is designed as visual comparison tool of the
@@ -126,7 +125,7 @@ Trade-off components without delving into complex details.
 It enables viewers to intuitively understand and evaluate the
 differences in EMT distances between the various cases studied. The
 colour-coded points facilitate a quick and easy comparative analysis
-allowing viewers to infer the relative differences in the Sommit Index.
+allowing viewers to infer the relative differences in the Σommit Index.
 Hovering a point with the mouse reveals more detailed data about the
 point in the right side panel.
 
@@ -146,7 +145,7 @@ individual variables and cases.
 -   What is a MFA?
 -   Grouping of variables
 
-``` {.r org-language="R"}
+``` ess-r
 mfa <- MFA(
   sommit_data,
   group = c(4, 1, 5, 8),
