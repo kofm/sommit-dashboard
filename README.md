@@ -1,31 +1,31 @@
 
 # Table of Contents
 
-1.  [Σommit Trade-offs analysis dashboard](#orga5e0fe5)
-    1.  [Introduction](#orgd9cf362)
-    2.  [Screenshots](#orgb260e55)
-    3.  [Installation](#orgc4bb55f)
-        1.  [Pre-requisites](#org428b2f4)
-        2.  [Windows](#org23d8a28)
-        3.  [Unix-like systems (MacOS, Linux, etc.)](#orgf660f7b)
-    4.  [How to use the dashboard](#orge0067d5)
-        1.  [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#orgc52c86f)
-        2.  [How to interact with the dashboard](#orgf54d524)
-        3.  [Filters](#orgde626a5)
-        4.  [Interacting with the plot](#org8133b7f)
-        5.  [How to interpret the visualization](#org84b5612)
-    5.  [Methodology](#org4f8d754)
-        1.  [Multiple Factor Analysis (MFA)](#orgb9b9b79)
-        2.  [MFA implementation](#orgb2de733)
-    6.  [Licensing](#orga0323ce)
+1.  [Σommit Trade-offs analysis dashboard](#orgdd1f062)
+    1.  [Introduction](#org1e7cd26)
+    2.  [Screenshots](#orge655288)
+    3.  [Installation](#orgb031651)
+        1.  [Pre-requisites](#org37a1339)
+        2.  [Windows](#orgaa1b007)
+        3.  [Unix-like systems (MacOS, Linux, etc.)](#org15a59fa)
+    4.  [How to use the dashboard](#orged09208)
+        1.  [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#org92ff9c6)
+        2.  [How to interact with the dashboard](#orgf652df8)
+        3.  [Filters](#org10f146b)
+        4.  [Interacting with the plot](#orge3927c1)
+        5.  [How to interpret the visualization](#org21aed1d)
+    5.  [Methodology](#orga649f78)
+        1.  [Multiple Factor Analysis (MFA)](#orga8a2863)
+        2.  [MFA implementation](#orgdb9afe1)
+    6.  [Licensing](#org57cd91b)
 
 
-<a id="orga5e0fe5"></a>
+<a id="orgdd1f062"></a>
 
 # Σommit Trade-offs analysis dashboard
 
 
-<a id="orgd9cf362"></a>
+<a id="org1e7cd26"></a>
 
 ## Introduction
 
@@ -36,26 +36,26 @@ The dataset was generated taking into account over two milions agronomic case-sc
 More details on the rules and data analysis will be found on the main paper "Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. A fuzzy logic evaluation of synergies and trade-offs between agricultural production and climate change mitigation" (currently submitted to *Journal of Cleaner Production*).
 
 
-<a id="orgb260e55"></a>
+<a id="orge655288"></a>
 
 ## Screenshots
 
 ![img](./sommit_dashboard.png)
 
 
-<a id="orgc4bb55f"></a>
+<a id="orgb031651"></a>
 
 ## Installation
 
 
-<a id="org428b2f4"></a>
+<a id="org37a1339"></a>
 
 ### Pre-requisites
 
 You will need **Docker** and **Docker Compose** installed. Please refer to official install instructions for your system on the [Docker website](https://docs.docker.com/engine/install/). You'll optionally need Git installed if you want to download the dashboard through git; you can also download this repository via the GitHub interface
 
 
-<a id="org23d8a28"></a>
+<a id="orgaa1b007"></a>
 
 ### Windows
 
@@ -66,7 +66,7 @@ You will need **Docker** and **Docker Compose** installed. Please refer to offic
 5.  The dashboard can be reached using you favourite browser (Firefox, Edge, Chrome, ecc.) at the following URL <http://localhost:5001>.
 
 
-<a id="orgf660f7b"></a>
+<a id="org15a59fa"></a>
 
 ### Unix-like systems (MacOS, Linux, etc.)
 
@@ -79,12 +79,12 @@ On Unix-like systems, open your favourite terminal then issue the following comm
 That's it! Wait for the docker container to be built, then you can reach the container at <http://localhost:5001>
 
 
-<a id="orge0067d5"></a>
+<a id="orged09208"></a>
 
 ## How to use the dashboard
 
 
-<a id="orgc52c86f"></a>
+<a id="org92ff9c6"></a>
 
 ### Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios
 
@@ -95,14 +95,14 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
 -   Trade-off components (T)
 
 
-<a id="orgf54d524"></a>
+<a id="orgf652df8"></a>
 
 ### How to interact with the dashboard
 
 That's becasue some combinations do not exist.
 
 
-<a id="orgde626a5"></a>
+<a id="org10f146b"></a>
 
 ### Filters
 
@@ -148,7 +148,7 @@ The filters in the app allow you to tailor the displayed data according to speci
     -   Crops: select from a variety of crops such as cereals, legumes, and vegetables.
 
 
-<a id="org8133b7f"></a>
+<a id="orge3927c1"></a>
 
 ### Interacting with the plot
 
@@ -161,7 +161,7 @@ Engaging with the 3D plot in the dashboard is intuitive, and here are the variou
 -   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between orbital and turntable. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
 
 
-<a id="org84b5612"></a>
+<a id="org21aed1d"></a>
 
 ### How to interpret the visualization
 
@@ -176,12 +176,12 @@ It enables viewers to intuitively understand and evaluate the differences in EMT
 Focusing on the relative distances between the points allows to understand the differences in the combined variables. Use the colour coding as a quick reference to compare the ratings provided by the Î£ommit index. Remember that this visualisation is a high-level representation, and detailed analysis may require a deeper look into the individual variables and cases.
 
 
-<a id="org4f8d754"></a>
+<a id="orga649f78"></a>
 
 ## Methodology
 
 
-<a id="orgb9b9b79"></a>
+<a id="orga8a2863"></a>
 
 ### Multiple Factor Analysis (MFA)
 
@@ -196,11 +196,11 @@ Here's a simplified explanation of some MFA features to help you understand how 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
 
 
-<a id="orgb2de733"></a>
+<a id="orgdb9afe1"></a>
 
 ### MFA implementation
 
-For statistics nerds (🤓), the following is the actual code that generated the MFA on which the dashboard relies.
+For statistics nerds (🤓), the following is the actual R code that generated the MFA on which the dashboard relies, using the [FactoMineR](http://factominer.free.fr/factomethods/multiple-factor-analysis.html) R package.
 
     mfa <- FactoMineR::MFA(
       sommit_data,
@@ -211,7 +211,7 @@ For statistics nerds (🤓), the following is the actual code that generated the
     )
 
 
-<a id="orga0323ce"></a>
+<a id="org57cd91b"></a>
 
 ## Licensing
 

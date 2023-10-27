@@ -166,9 +166,9 @@ Here's a simplified explanation of some MFA features to help you understand how 
 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
 
-*** MFA implementation
+*** MFA implementation :repo:
 
-For statistics nerds (🤓), the following is the actual code that generated the MFA on which the dashboard relies.
+For statistics nerds (🤓), the following is the actual R code that generated the MFA on which the dashboard relies, using the [[http://factominer.free.fr/factomethods/multiple-factor-analysis.html][FactoMineR]] R package.
 
 #+begin_src R
   mfa <- FactoMineR::MFA(

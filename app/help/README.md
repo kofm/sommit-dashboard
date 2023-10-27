@@ -111,16 +111,3 @@ Here's a simplified explanation of some MFA features to help you understand how 
 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
 
-
-### MFA implementation
-
-For statistics nerds (🤓), the following is the actual code that generated the MFA on which the dashboard relies.
-
-    mfa <- FactoMineR::MFA(
-      sommit_data,
-      group = c(4, 1, 5, 8),
-      type = c("s", "s", "n", "n"),
-      name.group = c("toc", "si", "env", "mgmt"),
-      graph = FALSE
-    )
-
