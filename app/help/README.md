@@ -1,4 +1,3 @@
-
 # Σommit Trade-offs analysis dashboard
 
 
@@ -39,8 +38,7 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
         
         Additionally, a "Balanced" narrative is available, which assigns equal weights to all components, providing a neutral and unbiased view of the data. This can be particularly useful if you are looking for a broad overview without the influence of any specific stakeholder’s perspective.
         
-        These narratives were carefully developed based on expert input through surveys with specialists in greenhouse gas emissions and soil carbon-nitrogen dynamics. By adjusting the weights used in the Σommit index calculation, each narrative provides a unique lens to view and understand the trade-offs associated with different agricultural scenarios.
-        Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
+        These narratives were carefully developed based on expert input through surveys with specialists in greenhouse gas emissions and soil carbon-nitrogen dynamics. By adjusting the weights used in the Σommit index calculation, each narrative provides a unique lens to view and understand the trade-offs associated with different agricultural scenarios. Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
     
     2.  Environment
     
@@ -56,7 +54,7 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
     
     3.  Management
     
-        The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops. 
+        The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops.
         
         -   **Nitrogen Input** (kg ha-1): choose the amount of nitrogen added to the soil, ranging from 0 to 200 kg per hectare. This helps to reflect different fertilization practices.
         
@@ -106,4 +104,3 @@ Here's a simplified explanation of some MFA features to help you understand how 
 3.  ****Visualizing Relationships****: The results of the MFA are visualized in a plot, where each point represents a specific agronomic case-scenario. The proximity of points on the plot indicates how similar they are in terms of the variables considered.
 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
-

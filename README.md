@@ -1,29 +1,26 @@
-
-# Table of Contents
-
-1.  [Σommit Trade-offs analysis dashboard](#org60a42e0)
-    1.  [Introduction](#org0903d74)
-    2.  [Screenshots](#org8cc4c6a)
-    3.  [Installation](#orgb5fcd0a)
-        1.  [Pre-requisites](#org3a81606)
-        2.  [Windows](#org5024f01)
-        3.  [Unix-like systems (MacOS, Linux, etc.)](#orga293219)
-    4.  [How to use the dashboard](#org6e6b4d1)
-        1.  [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#org1a44864)
-        2.  [How to interact with the dashboard](#org69842c3)
-        3.  [How to interpret the visualization](#org2e84353)
-    5.  [Methodology](#orgbd05310)
-        1.  [Multiple Factor Analysis (MFA)](#orgc0274ca)
-        2.  [MFA implementation](#orga2656e3)
-    6.  [Licensing](#org1cc7280)
+- [Σommit Trade-offs analysis dashboard](#org03ec418)
+  - [Introduction](#org4166530)
+  - [Screenshots](#org5662da9)
+  - [Installation](#orge37198f)
+    - [Pre-requisites](#org087c01b)
+    - [Windows](#org545135a)
+    - [Unix-like systems (MacOS, Linux, etc.)](#orgadfbe07)
+  - [How to use the dashboard](#orgc8d67b1)
+    - [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#org6b08812)
+    - [How to interact with the dashboard](#orgfb998da)
+    - [How to interpret the visualization](#orgc82106a)
+  - [Methodology](#orgdc0acae)
+    - [Multiple Factor Analysis (MFA)](#orgd480ed9)
+    - [MFA implementation](#org8581610)
+  - [Licensing](#org7923eba)
 
 
-<a id="org60a42e0"></a>
+<a id="org03ec418"></a>
 
 # Σommit Trade-offs analysis dashboard
 
 
-<a id="org0903d74"></a>
+<a id="org4166530"></a>
 
 ## Introduction
 
@@ -34,55 +31,57 @@ The dataset was generated taking into account over two milions agronomic case-sc
 More details on the rules and data analysis will be found on the main paper "Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. A fuzzy logic evaluation of synergies and trade-offs between agricultural production and climate change mitigation" (currently submitted to *Journal of Cleaner Production*).
 
 
-<a id="org8cc4c6a"></a>
+<a id="org5662da9"></a>
 
 ## Screenshots
 
 ![img](./sommit_dashboard.png)
 
 
-<a id="orgb5fcd0a"></a>
+<a id="orge37198f"></a>
 
 ## Installation
 
 
-<a id="org3a81606"></a>
+<a id="org087c01b"></a>
 
 ### Pre-requisites
 
 You will need **Docker** and **Docker Compose** installed. Please refer to official install instructions for your system on the [Docker website](https://docs.docker.com/engine/install/). You'll optionally need Git installed if you want to download the dashboard through git; you can also download this repository via the GitHub interface
 
 
-<a id="org5024f01"></a>
+<a id="org545135a"></a>
 
 ### Windows
 
 1.  [Download this repository](https://github.com/kofm/sommit-dashboard/archive/refs/heads/main.zip). Alternatively you can clone the repository via PowerShell using the command `git clone https://github.com/kofm/sommit-dashboard`; if that's the case, skip to step 3.
 2.  Extract the ZIP file in a directory of your liking.
-3.  Inside the downloaded (or cloned) directory you will find a PowerShell script named `StartΣommitDashboard.ps1`. Execute it by double clicking it.
+3.  Inside the downloaded (or cloned) directory you will find a PowerShell script named `StartSommitDashboard.ps1`. Execute it by double clicking it.
 4.  Wait for the container to build and start (it may take a few minutes). Then
 5.  The dashboard can be reached using you favourite browser (Firefox, Edge, Chrome, ecc.) at the following URL <http://localhost:5001>.
 
 
-<a id="orga293219"></a>
+<a id="orgadfbe07"></a>
 
 ### Unix-like systems (MacOS, Linux, etc.)
 
 On Unix-like systems, open your favourite terminal then issue the following commands (assuming that you've git installed):
 
-    git clone https://github.com/kofm/sommit-dashboard
-    cd sommit-dashboard
-    docker-compose up -d # or `docker compose up -d` if your using Compose v2 
+```shell
+git clone https://github.com/kofm/sommit-dashboard
+cd sommit-dashboard
+docker-compose up -d # or `docker compose up -d` if your using Compose v2 
+```
 
 That's it! Wait for the docker container to be built, then you can reach the container at <http://localhost:5001>
 
 
-<a id="org6e6b4d1"></a>
+<a id="orgc8d67b1"></a>
 
 ## How to use the dashboard
 
 
-<a id="org1a44864"></a>
+<a id="org6b08812"></a>
 
 ### Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios
 
@@ -93,7 +92,7 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
 -   Trade-off components (T)
 
 
-<a id="org69842c3"></a>
+<a id="orgfb998da"></a>
 
 ### How to interact with the dashboard
 
@@ -111,8 +110,7 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
         
         Additionally, a "Balanced" narrative is available, which assigns equal weights to all components, providing a neutral and unbiased view of the data. This can be particularly useful if you are looking for a broad overview without the influence of any specific stakeholder’s perspective.
         
-        These narratives were carefully developed based on expert input through surveys with specialists in greenhouse gas emissions and soil carbon-nitrogen dynamics. By adjusting the weights used in the Σommit index calculation, each narrative provides a unique lens to view and understand the trade-offs associated with different agricultural scenarios.
-        Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
+        These narratives were carefully developed based on expert input through surveys with specialists in greenhouse gas emissions and soil carbon-nitrogen dynamics. By adjusting the weights used in the Σommit index calculation, each narrative provides a unique lens to view and understand the trade-offs associated with different agricultural scenarios. Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
     
     2.  Environment
     
@@ -128,7 +126,7 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
     
     3.  Management
     
-        The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops. 
+        The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops.
         
         -   **Nitrogen Input** (kg ha-1): choose the amount of nitrogen added to the soil, ranging from 0 to 200 kg per hectare. This helps to reflect different fertilization practices.
         
@@ -151,7 +149,7 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
     -   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between orbital and turntable. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
 
 
-<a id="org2e84353"></a>
+<a id="orgc82106a"></a>
 
 ### How to interpret the visualization
 
@@ -166,12 +164,12 @@ It enables viewers to intuitively understand and evaluate the differences in EMT
 Focusing on the relative distances between the points allows to understand the differences in the combined variables. Use the colour coding as a quick reference to compare the ratings provided by the Î£ommit index. Remember that this visualisation is a high-level representation, and detailed analysis may require a deeper look into the individual variables and cases.
 
 
-<a id="orgbd05310"></a>
+<a id="orgdc0acae"></a>
 
 ## Methodology
 
 
-<a id="orgc0274ca"></a>
+<a id="orgd480ed9"></a>
 
 ### Multiple Factor Analysis (MFA)
 
@@ -186,26 +184,27 @@ Here's a simplified explanation of some MFA features to help you understand how 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
 
 
-<a id="orga2656e3"></a>
+<a id="org8581610"></a>
 
 ### MFA implementation
 
 For statistics nerds (🤓), the following is the actual R code that generated the MFA on which the dashboard relies, using the [FactoMineR](http://factominer.free.fr/factomethods/multiple-factor-analysis.html) R package.
 
-    mfa <- FactoMineR::MFA(
-      sommit_data,
-      group = c(4, 1, 5, 8),
-      type = c("s", "s", "n", "n"),
-      name.group = c("toc", "si", "env", "mgmt"),
-      graph = FALSE
-    )
+```R
+mfa <- FactoMineR::MFA(
+  sommit_data,
+  group = c(4, 1, 5, 8),
+  type = c("s", "s", "n", "n"),
+  name.group = c("toc", "si", "env", "mgmt"),
+  graph = FALSE
+)
+```
 
 
-<a id="org1cc7280"></a>
+<a id="org7923eba"></a>
 
 ## Licensing
 
 The software in this repository is licensed under the Apache License 2.0. You can find the terms in the `/app/LICENSE` file.
 
 The data provided in this repository is licensed under the Creative Commons Attribution-ShareAlike (CC-BY-SA). The terms for this license can be found in the `/data/LICENSE` file.
-

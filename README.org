@@ -26,7 +26,7 @@
       (visible-only nil)
       (body-only nil)
       (ext-plist '()))
-  (org-export-to-file 'md "README.md" async subtreep visible-only body-only ext-plist))
+  (org-export-to-file 'gfm "README.md" async subtreep visible-only body-only ext-plist))
 #+end_src
 
 ⚠️⚠️⚠️ This software is in active development. Expect bugs and changes. ⚠️⚠️⚠️
