@@ -7,8 +7,8 @@ from help import tab_help
 
 
 # Read data
-sommit_data = pd.read_csv("sommit-data.csv")
-mfa_ind_coord = pd.read_csv("mfa-ind-coord.csv")
+sommit_data = pd.read_csv("data/sommit-data.csv")
+mfa_ind_coord = pd.read_csv("data/mfa-ind-coord.csv")
 df = pd.concat([sommit_data, mfa_ind_coord], axis=1)
 
 
@@ -103,7 +103,7 @@ tabs = dbc.Tabs(
 
 app.layout = dbc.Container(
     [
-        html.H1(children="Trade-offs analysis", className="display-1"),
+        html.H1(children="Σommit Trade-offs analysis", className="display-1"),
         html.Div(tabs, className="my-3"),
     ]
 )
