@@ -1,7 +1,10 @@
-from dash import html
+from dash import html, dcc
 
-about_text = html.P(
-    children="The Sommit Trade-offs analysis dashboard is a web-based user interface (UI) for exploring the dataset released in: Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. (2023). Dataset of agronomic case-scenarios and workflow to compute the Sommit Index (0.1). Zenodo. https://doi.org/10.5281/zenodo.10014452", className = "my-3"
+with open("help/README.md") as file:
+    file_contents = file.read()
+
+about_text = dcc.Markdown(
+    children=file_contents, className = "my-3"
 )
 
 tab_help = [about_text]

@@ -1,18 +1,50 @@
 * Σommit Trade-offs analysis dashboard
 
+** Export :noexport:
+
+*** In-app help system
+
+#+begin_src elisp :results silent
+  (let ((org-export-exclude-tags '("repo" "noexport"))
+  (org-export-with-tags nil)
+  (org-export-with-toc nil)
+      (async nil)
+      (subtreep nil)
+      (visible-only nil)
+      (body-only nil)
+      (ext-plist '()))
+  (org-export-to-file 'md "app/help/README.md" async subtreep visible-only body-only ext-plist))
+#+end_src
+
+*** GitHub repo README
+
+#+begin_src elisp :results silent
+  (let ((org-export-exclude-tags '("noexport"))
+  (org-export-with-tags nil)
+      (async nil)
+      (subtreep nil)
+      (visible-only nil)
+      (body-only nil)
+      (ext-plist '()))
+  (org-export-to-file 'md "README.md" async subtreep visible-only body-only ext-plist))
+#+end_src
+
 ⚠️⚠️⚠️ This software is in active development. Expect bugs and changes. ⚠️⚠️⚠️
 
 ** Introduction
 
 The Σommit Trade-offs analysis dashboard is a web-based user interface (UI) for exploring the dataset released in: Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. (2023). Dataset of agronomic case-scenarios and workflow to compute the Σommit index (0.1). Zenodo. https://doi.org/10.5281/zenodo.10014452
 
-[[./sommit_dashboard.png]]
-
 The dataset was generated taking into account over two milions agronomic case-scenarios relative to the Italian agricultural land and following IPCC Guidelines for National Greenhouse Gas Inventories - Tier 1 ([[https://www.ipcc-nggip.iges.or.jp/public/2019rf/vol4.html][2019 Refinement to the 2006 IPCC Guidelines for National Greenhouse Gas Inventories Volume 4 Agriculture, Forestry and Other Land Use]]) to calculate four trade-off components (i.e. soil organic carbon change, nitrous oxide emissions, nitrate nitrogen leaching, and crop yield) resulting from the interaction of varying management practices under different environmental conditions. A fuzzy logic based methodology was then used to derive the Σommit Index, which can be helpful in performing a cost-benefit analysis considering with respect to the trade-off components and based on a set of pre-defined arbitrary rules. In the implementation of the methodology that produced the dataset that can be explored with the present dashboard, four different sets of rules have been applied, corresponding to four different narratives, namely: balanced weighting scheme, young farmer, agrochemical company, EU Community Agricultural Policy agency.
 
 More details on the rules and data analysis will be found on the main paper "Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. A fuzzy logic evaluation of synergies and trade-offs between agricultural production and climate change mitigation" (currently submitted to /Journal of Cleaner Production/).
 
-** Installation
+** Screenshots :repo:
+
+[[./sommit_dashboard.png]]
+
+
+** Installation :repo:
 
 *** Pre-requisites
 
@@ -92,7 +124,7 @@ Focusing on the relative distances between the points allows to understand the d
   )
 #+end_src
 
-** Licensing
+** Licensing :repo:
 
 The software in this repository is licensed under the Apache License 2.0. You can find the terms in the =/app/LICENSE= file.
 
