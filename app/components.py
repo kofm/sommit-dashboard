@@ -52,10 +52,10 @@ def render_card_summary(row, narrative, selected=False):
     )
 
     indicators_to_display = [
-        {"label": "CO2 fluxes", "value": row["CO2Q"]},
+        {"label": "ΔSOC (COeq)", "value": row["CO2Q"]},
         {"label": "N2O emissions", "value": row["N2OQ"]},
-        {"label": "NO3 leaching", "value": row["NO3Q"]},
-        {"label": "Yield", "value": row["YQ"]},
+        {"label": "N-NO3 leaching", "value": row["NO3Q"]},
+        {"label": "Crop yield", "value": row["YQ"]},
     ]
 
     card_indicators = dbc.Row(
@@ -78,7 +78,7 @@ def render_card_summary(row, narrative, selected=False):
     )
 
     card_footer = dbc.CardFooter(
-        TocGauge(label="Sommit Index", value=row[narrative], color="red")
+        TocGauge(label="Σommit Index", value=row[narrative], color="red")
     )
     card = dbc.Card(
         [card_body, card_footer],

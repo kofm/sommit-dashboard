@@ -20,7 +20,7 @@ server = app.server
 
 # Filter controls
 fields_to_filter_environment = [
-    ("Moisture Regime", "moistRegime", "dropdown-moist"),
+    ("Precipitations", "moistRegime", "dropdown-moist"),
     ("Temperature Regime", "tempRegime", "dropdown-temp"),
 ]
 
@@ -156,30 +156,34 @@ def update_dist_plot(narrative, moist, temp, nitrogen, ominput, crops):
         height=800,
         opacity=0.7,
         range_color=[0.2, 0.8],
-        hover_data={"ΣI_N0": ":.2f"},
+        hover_data={narrative: ":.2f"},
         custom_data=[
             df[mask].index,
         ],
+        labels={narrative: "Σommit Index"}
     )
-    fig.update_scenes(aspectmode="cube")
     fig.update_traces(
-        hovertemplate="ΣI_N0 %{marker.color:.2f}", selector=dict(type="scatter3d")
+        hovertemplate="Σommit Index %{marker.color:.2f}",
+        selector=dict(type="scatter3d"),
     )
     fig.update_scenes(
+        aspectmode="cube",
         xaxis_showbackground=False,
         yaxis_showbackground=False,
         zaxis_showbackground=False,
-    )
-    fig.update_scenes(
-        xaxis_showspikes=False, yaxis_showspikes=False, zaxis_showspikes=False
-    )
-    fig.update_scenes(
+        xaxis_showspikes=False,
+        yaxis_showspikes=False,
+        zaxis_showspikes=False,
         xaxis_showticklabels=False,
         yaxis_showticklabels=False,
         zaxis_showticklabels=False,
+        xaxis_visible=False,
+        yaxis_visible=False,
+        zaxis_visible=False,
+        camera_eye_x=1,
+        camera_eye_y=1,
+        camera_eye_z=1
     )
-    fig.update_scenes(xaxis_visible=False, yaxis_visible=False, zaxis_visible=False)
-    fig.update_scenes(camera_eye_x=1, camera_eye_y=1, camera_eye_z=1)
     return fig
 
 
