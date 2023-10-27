@@ -154,3 +154,12 @@ mfa <- MFA(
   graph = FALSE
 )
 ```
+
+## Licensing
+
+The software in this repository is licensed under the Apache License
+2.0. You can find the terms in the `/app/LICENSE`{.verbatim} file.
+
+The data provided in this repository is licensed under the Creative
+Commons Attribution-ShareAlike (CC-BY-SA). The terms for this license
+can be found in the `/data/LICENSE`{.verbatim} file.
