@@ -43,7 +43,6 @@ More details on the rules and data analysis will be found on the main paper "Cal
 
 [[./sommit_dashboard.png]]
 
-
 ** Installation :repo:
 
 *** Pre-requisites
@@ -82,15 +81,11 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
 
 *** How to interact with the dashboard
 
-That's becasue some combinations do not exist.
-
-**** TODO Specify that 0-cases combinations can occur with some specific filters :noexport:
-
-*** Filters
+**** Filters
 
 The filters in the app allow you to tailor the displayed data according to specific criteria, ensuring that you can focus on the most relevant agronomic case-scenarios for your needs. However, it’s important to note that certain combinations of filters might lead to a situation where there are no matching case-scenarios, resulting in an empty plot. If this happens, try to adjust your filter selections to broaden the search and populate the plot with relevant data points.
 
-**** Narrative
+***** Narrative
 
 In the Σommit Trade-offs analysis dashboard, the narratives played a crucial role in shaping the results, particularly how the Σommit index was calculated. The Σommit index is a numerical value derived from four components of agricultural trade-offs, and the weights assigned to these components have been adjusted to reflect different priorities and perspectives. This is where the narratives come in.
 
@@ -104,7 +99,7 @@ These narratives were carefully developed based on expert input through surveys 
 Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
 
 
-**** Environment
+***** Environment
 
 The "Environment" filters are designed to help you adjust the displayed data to match specific climate and precipitation conditions.
 
@@ -116,7 +111,7 @@ The "Environment" filters are designed to help you adjust the displayed data to 
     - *Dry*. This setting is for areas with less frequent precipitation, leading to drier soil conditions.
     - *Moist*. Choose this option for areas with more frequent precipitation, resulting in more humid soil conditions.
 
-**** Management
+***** Management
 
 The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops. 
 
@@ -130,7 +125,7 @@ The "Management" filters allow you to select a subset of the data specific to ag
 
 - Crops: select from a variety of crops such as cereals, legumes, and vegetables. 
 
-*** Interacting with the plot
+**** Interacting with the plot
 
 Engaging with the 3D plot in the dashboard is intuitive, and here are the various ways you can interact with it to get the most out of your experience:
 

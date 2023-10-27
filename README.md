@@ -1,31 +1,29 @@
 
 # Table of Contents
 
-1.  [Σommit Trade-offs analysis dashboard](#orgdd1f062)
-    1.  [Introduction](#org1e7cd26)
-    2.  [Screenshots](#orge655288)
-    3.  [Installation](#orgb031651)
-        1.  [Pre-requisites](#org37a1339)
-        2.  [Windows](#orgaa1b007)
-        3.  [Unix-like systems (MacOS, Linux, etc.)](#org15a59fa)
-    4.  [How to use the dashboard](#orged09208)
-        1.  [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#org92ff9c6)
-        2.  [How to interact with the dashboard](#orgf652df8)
-        3.  [Filters](#org10f146b)
-        4.  [Interacting with the plot](#orge3927c1)
-        5.  [How to interpret the visualization](#org21aed1d)
-    5.  [Methodology](#orga649f78)
-        1.  [Multiple Factor Analysis (MFA)](#orga8a2863)
-        2.  [MFA implementation](#orgdb9afe1)
-    6.  [Licensing](#org57cd91b)
+1.  [Σommit Trade-offs analysis dashboard](#org60a42e0)
+    1.  [Introduction](#org0903d74)
+    2.  [Screenshots](#org8cc4c6a)
+    3.  [Installation](#orgb5fcd0a)
+        1.  [Pre-requisites](#org3a81606)
+        2.  [Windows](#org5024f01)
+        3.  [Unix-like systems (MacOS, Linux, etc.)](#orga293219)
+    4.  [How to use the dashboard](#org6e6b4d1)
+        1.  [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#org1a44864)
+        2.  [How to interact with the dashboard](#org69842c3)
+        3.  [How to interpret the visualization](#org2e84353)
+    5.  [Methodology](#orgbd05310)
+        1.  [Multiple Factor Analysis (MFA)](#orgc0274ca)
+        2.  [MFA implementation](#orga2656e3)
+    6.  [Licensing](#org1cc7280)
 
 
-<a id="orgdd1f062"></a>
+<a id="org60a42e0"></a>
 
 # Σommit Trade-offs analysis dashboard
 
 
-<a id="org1e7cd26"></a>
+<a id="org0903d74"></a>
 
 ## Introduction
 
@@ -36,26 +34,26 @@ The dataset was generated taking into account over two milions agronomic case-sc
 More details on the rules and data analysis will be found on the main paper "Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. A fuzzy logic evaluation of synergies and trade-offs between agricultural production and climate change mitigation" (currently submitted to *Journal of Cleaner Production*).
 
 
-<a id="orge655288"></a>
+<a id="org8cc4c6a"></a>
 
 ## Screenshots
 
 ![img](./sommit_dashboard.png)
 
 
-<a id="orgb031651"></a>
+<a id="orgb5fcd0a"></a>
 
 ## Installation
 
 
-<a id="org37a1339"></a>
+<a id="org3a81606"></a>
 
 ### Pre-requisites
 
 You will need **Docker** and **Docker Compose** installed. Please refer to official install instructions for your system on the [Docker website](https://docs.docker.com/engine/install/). You'll optionally need Git installed if you want to download the dashboard through git; you can also download this repository via the GitHub interface
 
 
-<a id="orgaa1b007"></a>
+<a id="org5024f01"></a>
 
 ### Windows
 
@@ -66,7 +64,7 @@ You will need **Docker** and **Docker Compose** installed. Please refer to offic
 5.  The dashboard can be reached using you favourite browser (Firefox, Edge, Chrome, ecc.) at the following URL <http://localhost:5001>.
 
 
-<a id="org15a59fa"></a>
+<a id="orga293219"></a>
 
 ### Unix-like systems (MacOS, Linux, etc.)
 
@@ -79,12 +77,12 @@ On Unix-like systems, open your favourite terminal then issue the following comm
 That's it! Wait for the docker container to be built, then you can reach the container at <http://localhost:5001>
 
 
-<a id="orged09208"></a>
+<a id="org6e6b4d1"></a>
 
 ## How to use the dashboard
 
 
-<a id="org92ff9c6"></a>
+<a id="org1a44864"></a>
 
 ### Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios
 
@@ -95,73 +93,65 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
 -   Trade-off components (T)
 
 
-<a id="orgf652df8"></a>
+<a id="org69842c3"></a>
 
 ### How to interact with the dashboard
 
-That's becasue some combinations do not exist.
+1.  Filters
 
-
-<a id="org10f146b"></a>
-
-### Filters
-
-The filters in the app allow you to tailor the displayed data according to specific criteria, ensuring that you can focus on the most relevant agronomic case-scenarios for your needs. However, it’s important to note that certain combinations of filters might lead to a situation where there are no matching case-scenarios, resulting in an empty plot. If this happens, try to adjust your filter selections to broaden the search and populate the plot with relevant data points.
-
-1.  Narrative
-
-    In the Σommit Trade-offs analysis dashboard, the narratives played a crucial role in shaping the results, particularly how the Σommit index was calculated. The Σommit index is a numerical value derived from four components of agricultural trade-offs, and the weights assigned to these components have been adjusted to reflect different priorities and perspectives. This is where the narratives come in.
+    The filters in the app allow you to tailor the displayed data according to specific criteria, ensuring that you can focus on the most relevant agronomic case-scenarios for your needs. However, it’s important to note that certain combinations of filters might lead to a situation where there are no matching case-scenarios, resulting in an empty plot. If this happens, try to adjust your filter selections to broaden the search and populate the plot with relevant data points.
     
-    -   N1 – Young Farmers: This narrative reflects the viewpoint of innovative young farmers eager to balance productivity with sustainable practices. When you choose this narrative, the weights are adjusted to highlight aspects of agricultural trade-offs that are most relevant to this group. This might mean, for example, giving more importance to sustainable soil management or the land's long-term health.
-    -   N2 – Agrochem Corporation: From the perspective of a multinational agricultural chemical company, the focus might be more on maximizing crop yield. Selecting this narrative adjusts the weights in the Σommit index calculation to emphasize these aspects, helping to highlight scenarios where agrochemical products are likely to be most effective.
-    -   N3 – CAP Paying Agency: The priorities could be different again for an EU national agency responsible for allocating agricultural funds. This narrative adjusts the Σommit index calculation to reflect a policy and funding allocation standpoint, perhaps giving more weight to practices that align with EU agricultural policies.
+    1.  Narrative
     
-    Additionally, a "Balanced" narrative is available, which assigns equal weights to all components, providing a neutral and unbiased view of the data. This can be particularly useful if you are looking for a broad overview without the influence of any specific stakeholder’s perspective.
+        In the Σommit Trade-offs analysis dashboard, the narratives played a crucial role in shaping the results, particularly how the Σommit index was calculated. The Σommit index is a numerical value derived from four components of agricultural trade-offs, and the weights assigned to these components have been adjusted to reflect different priorities and perspectives. This is where the narratives come in.
+        
+        -   N1 – Young Farmers: This narrative reflects the viewpoint of innovative young farmers eager to balance productivity with sustainable practices. When you choose this narrative, the weights are adjusted to highlight aspects of agricultural trade-offs that are most relevant to this group. This might mean, for example, giving more importance to sustainable soil management or the land's long-term health.
+        -   N2 – Agrochem Corporation: From the perspective of a multinational agricultural chemical company, the focus might be more on maximizing crop yield. Selecting this narrative adjusts the weights in the Σommit index calculation to emphasize these aspects, helping to highlight scenarios where agrochemical products are likely to be most effective.
+        -   N3 – CAP Paying Agency: The priorities could be different again for an EU national agency responsible for allocating agricultural funds. This narrative adjusts the Σommit index calculation to reflect a policy and funding allocation standpoint, perhaps giving more weight to practices that align with EU agricultural policies.
+        
+        Additionally, a "Balanced" narrative is available, which assigns equal weights to all components, providing a neutral and unbiased view of the data. This can be particularly useful if you are looking for a broad overview without the influence of any specific stakeholder’s perspective.
+        
+        These narratives were carefully developed based on expert input through surveys with specialists in greenhouse gas emissions and soil carbon-nitrogen dynamics. By adjusting the weights used in the Σommit index calculation, each narrative provides a unique lens to view and understand the trade-offs associated with different agricultural scenarios.
+        Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
     
-    These narratives were carefully developed based on expert input through surveys with specialists in greenhouse gas emissions and soil carbon-nitrogen dynamics. By adjusting the weights used in the Σommit index calculation, each narrative provides a unique lens to view and understand the trade-offs associated with different agricultural scenarios.
-    Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
-
-2.  Environment
-
-    The "Environment" filters are designed to help you adjust the displayed data to match specific climate and precipitation conditions.
+    2.  Environment
     
-    -   Temperature Regime
-        -   **Cool**. Areas with cooler average temperatures.
-        -   **Warm**. Appropriate for regions with warmer average temperatures.
+        The "Environment" filters are designed to help you adjust the displayed data to match specific climate and precipitation conditions.
+        
+        -   Temperature Regime
+            -   **Cool**. Areas with cooler average temperatures.
+            -   **Warm**. Appropriate for regions with warmer average temperatures.
+        
+        -   Moisture Regime:
+            -   **Dry**. This setting is for areas with less frequent precipitation, leading to drier soil conditions.
+            -   **Moist**. Choose this option for areas with more frequent precipitation, resulting in more humid soil conditions.
     
-    -   Moisture Regime:
-        -   **Dry**. This setting is for areas with less frequent precipitation, leading to drier soil conditions.
-        -   **Moist**. Choose this option for areas with more frequent precipitation, resulting in more humid soil conditions.
-
-3.  Management
-
-    The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops. 
+    3.  Management
     
-    -   **Nitrogen Input** (kg ha-1): choose the amount of nitrogen added to the soil, ranging from 0 to 200 kg per hectare. This helps to reflect different fertilization practices.
+        The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops. 
+        
+        -   **Nitrogen Input** (kg ha-1): choose the amount of nitrogen added to the soil, ranging from 0 to 200 kg per hectare. This helps to reflect different fertilization practices.
+        
+        -   Organic Matter (OM) Input:
+            -   **Low**. A minimal addition of organic material to the soil.
+            -   **Medium**. A moderate addition of organic material to the soil.
+            -   **High**. A substantial addition of organic material to the soil.
+            -   **High with Manure**. A substantial addition of organic material to the soil, supplemented with manure.
+        
+        -   Crops: select from a variety of crops such as cereals, legumes, and vegetables.
+
+2.  Interacting with the plot
+
+    Engaging with the 3D plot in the dashboard is intuitive, and here are the various ways you can interact with it to get the most out of your experience:
     
-    -   Organic Matter (OM) Input:
-        -   **Low**. A minimal addition of organic material to the soil.
-        -   **Medium**. A moderate addition of organic material to the soil.
-        -   **High**. A substantial addition of organic material to the soil.
-        -   **High with Manure**. A substantial addition of organic material to the soil, supplemented with manure.
-    
-    -   Crops: select from a variety of crops such as cereals, legumes, and vegetables.
+    -   ****Rotating the Plot****: Click and hold the left mouse button while dragging over the plot to rotate and view it from different angles.
+    -   ****Zooming In and Out****: Use the scroll wheel on your mouse to zoom in for a closer look, or zoom out to see the broader perspective.
+    -   ****Resetting the View****: If you want to return to the original view of the plot, click on the home icon located in the top left corner of the plot area.
+    -   ****Viewing Data Points****: Hover your mouse over any point on the plot to see a popup that displays the index and a detailed breakdown of the agronomic case-scenario. This includes specifics on management and environmental factors, as well as the values of the trade-off components.
+    -   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between orbital and turntable. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
 
 
-<a id="orge3927c1"></a>
-
-### Interacting with the plot
-
-Engaging with the 3D plot in the dashboard is intuitive, and here are the various ways you can interact with it to get the most out of your experience:
-
--   ****Rotating the Plot****: Click and hold the left mouse button while dragging over the plot to rotate and view it from different angles.
--   ****Zooming In and Out****: Use the scroll wheel on your mouse to zoom in for a closer look, or zoom out to see the broader perspective.
--   ****Resetting the View****: If you want to return to the original view of the plot, click on the home icon located in the top left corner of the plot area.
--   ****Viewing Data Points****: Hover your mouse over any point on the plot to see a popup that displays the index and a detailed breakdown of the agronomic case-scenario. This includes specifics on management and environmental factors, as well as the values of the trade-off components.
--   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between orbital and turntable. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
-
-
-<a id="org21aed1d"></a>
+<a id="org2e84353"></a>
 
 ### How to interpret the visualization
 
@@ -176,12 +166,12 @@ It enables viewers to intuitively understand and evaluate the differences in EMT
 Focusing on the relative distances between the points allows to understand the differences in the combined variables. Use the colour coding as a quick reference to compare the ratings provided by the Î£ommit index. Remember that this visualisation is a high-level representation, and detailed analysis may require a deeper look into the individual variables and cases.
 
 
-<a id="orga649f78"></a>
+<a id="orgbd05310"></a>
 
 ## Methodology
 
 
-<a id="orga8a2863"></a>
+<a id="orgc0274ca"></a>
 
 ### Multiple Factor Analysis (MFA)
 
@@ -196,7 +186,7 @@ Here's a simplified explanation of some MFA features to help you understand how 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
 
 
-<a id="orgdb9afe1"></a>
+<a id="orga2656e3"></a>
 
 ### MFA implementation
 
@@ -211,7 +201,7 @@ For statistics nerds (🤓), the following is the actual R code that generated t
     )
 
 
-<a id="org57cd91b"></a>
+<a id="org1cc7280"></a>
 
 ## Licensing
 

@@ -25,62 +25,58 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
 
 ### How to interact with the dashboard
 
-That's becasue some combinations do not exist.
+1.  Filters
 
-
-### Filters
-
-The filters in the app allow you to tailor the displayed data according to specific criteria, ensuring that you can focus on the most relevant agronomic case-scenarios for your needs. However, it’s important to note that certain combinations of filters might lead to a situation where there are no matching case-scenarios, resulting in an empty plot. If this happens, try to adjust your filter selections to broaden the search and populate the plot with relevant data points.
-
-1.  Narrative
-
-    In the Σommit Trade-offs analysis dashboard, the narratives played a crucial role in shaping the results, particularly how the Σommit index was calculated. The Σommit index is a numerical value derived from four components of agricultural trade-offs, and the weights assigned to these components have been adjusted to reflect different priorities and perspectives. This is where the narratives come in.
+    The filters in the app allow you to tailor the displayed data according to specific criteria, ensuring that you can focus on the most relevant agronomic case-scenarios for your needs. However, it’s important to note that certain combinations of filters might lead to a situation where there are no matching case-scenarios, resulting in an empty plot. If this happens, try to adjust your filter selections to broaden the search and populate the plot with relevant data points.
     
-    -   N1 – Young Farmers: This narrative reflects the viewpoint of innovative young farmers eager to balance productivity with sustainable practices. When you choose this narrative, the weights are adjusted to highlight aspects of agricultural trade-offs that are most relevant to this group. This might mean, for example, giving more importance to sustainable soil management or the land's long-term health.
-    -   N2 – Agrochem Corporation: From the perspective of a multinational agricultural chemical company, the focus might be more on maximizing crop yield. Selecting this narrative adjusts the weights in the Σommit index calculation to emphasize these aspects, helping to highlight scenarios where agrochemical products are likely to be most effective.
-    -   N3 – CAP Paying Agency: The priorities could be different again for an EU national agency responsible for allocating agricultural funds. This narrative adjusts the Σommit index calculation to reflect a policy and funding allocation standpoint, perhaps giving more weight to practices that align with EU agricultural policies.
+    1.  Narrative
     
-    Additionally, a "Balanced" narrative is available, which assigns equal weights to all components, providing a neutral and unbiased view of the data. This can be particularly useful if you are looking for a broad overview without the influence of any specific stakeholder’s perspective.
+        In the Σommit Trade-offs analysis dashboard, the narratives played a crucial role in shaping the results, particularly how the Σommit index was calculated. The Σommit index is a numerical value derived from four components of agricultural trade-offs, and the weights assigned to these components have been adjusted to reflect different priorities and perspectives. This is where the narratives come in.
+        
+        -   N1 – Young Farmers: This narrative reflects the viewpoint of innovative young farmers eager to balance productivity with sustainable practices. When you choose this narrative, the weights are adjusted to highlight aspects of agricultural trade-offs that are most relevant to this group. This might mean, for example, giving more importance to sustainable soil management or the land's long-term health.
+        -   N2 – Agrochem Corporation: From the perspective of a multinational agricultural chemical company, the focus might be more on maximizing crop yield. Selecting this narrative adjusts the weights in the Σommit index calculation to emphasize these aspects, helping to highlight scenarios where agrochemical products are likely to be most effective.
+        -   N3 – CAP Paying Agency: The priorities could be different again for an EU national agency responsible for allocating agricultural funds. This narrative adjusts the Σommit index calculation to reflect a policy and funding allocation standpoint, perhaps giving more weight to practices that align with EU agricultural policies.
+        
+        Additionally, a "Balanced" narrative is available, which assigns equal weights to all components, providing a neutral and unbiased view of the data. This can be particularly useful if you are looking for a broad overview without the influence of any specific stakeholder’s perspective.
+        
+        These narratives were carefully developed based on expert input through surveys with specialists in greenhouse gas emissions and soil carbon-nitrogen dynamics. By adjusting the weights used in the Σommit index calculation, each narrative provides a unique lens to view and understand the trade-offs associated with different agricultural scenarios.
+        Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
     
-    These narratives were carefully developed based on expert input through surveys with specialists in greenhouse gas emissions and soil carbon-nitrogen dynamics. By adjusting the weights used in the Σommit index calculation, each narrative provides a unique lens to view and understand the trade-offs associated with different agricultural scenarios.
-    Even if you're not an expert in the field, the dashboard is designed to be accessible and informative. Feel free to switch between narratives and explore how the change in perspective influences the displayed results, providing a richer understanding of the agricultural trade-offs presented.
-
-2.  Environment
-
-    The "Environment" filters are designed to help you adjust the displayed data to match specific climate and precipitation conditions.
+    2.  Environment
     
-    -   Temperature Regime
-        -   **Cool**. Areas with cooler average temperatures.
-        -   **Warm**. Appropriate for regions with warmer average temperatures.
+        The "Environment" filters are designed to help you adjust the displayed data to match specific climate and precipitation conditions.
+        
+        -   Temperature Regime
+            -   **Cool**. Areas with cooler average temperatures.
+            -   **Warm**. Appropriate for regions with warmer average temperatures.
+        
+        -   Moisture Regime:
+            -   **Dry**. This setting is for areas with less frequent precipitation, leading to drier soil conditions.
+            -   **Moist**. Choose this option for areas with more frequent precipitation, resulting in more humid soil conditions.
     
-    -   Moisture Regime:
-        -   **Dry**. This setting is for areas with less frequent precipitation, leading to drier soil conditions.
-        -   **Moist**. Choose this option for areas with more frequent precipitation, resulting in more humid soil conditions.
-
-3.  Management
-
-    The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops. 
+    3.  Management
     
-    -   **Nitrogen Input** (kg ha-1): choose the amount of nitrogen added to the soil, ranging from 0 to 200 kg per hectare. This helps to reflect different fertilization practices.
+        The "Management" filters allow you to select a subset of the data specific to agricultural practices and types of crops. 
+        
+        -   **Nitrogen Input** (kg ha-1): choose the amount of nitrogen added to the soil, ranging from 0 to 200 kg per hectare. This helps to reflect different fertilization practices.
+        
+        -   Organic Matter (OM) Input:
+            -   **Low**. A minimal addition of organic material to the soil.
+            -   **Medium**. A moderate addition of organic material to the soil.
+            -   **High**. A substantial addition of organic material to the soil.
+            -   **High with Manure**. A substantial addition of organic material to the soil, supplemented with manure.
+        
+        -   Crops: select from a variety of crops such as cereals, legumes, and vegetables.
+
+2.  Interacting with the plot
+
+    Engaging with the 3D plot in the dashboard is intuitive, and here are the various ways you can interact with it to get the most out of your experience:
     
-    -   Organic Matter (OM) Input:
-        -   **Low**. A minimal addition of organic material to the soil.
-        -   **Medium**. A moderate addition of organic material to the soil.
-        -   **High**. A substantial addition of organic material to the soil.
-        -   **High with Manure**. A substantial addition of organic material to the soil, supplemented with manure.
-    
-    -   Crops: select from a variety of crops such as cereals, legumes, and vegetables.
-
-
-### Interacting with the plot
-
-Engaging with the 3D plot in the dashboard is intuitive, and here are the various ways you can interact with it to get the most out of your experience:
-
--   ****Rotating the Plot****: Click and hold the left mouse button while dragging over the plot to rotate and view it from different angles.
--   ****Zooming In and Out****: Use the scroll wheel on your mouse to zoom in for a closer look, or zoom out to see the broader perspective.
--   ****Resetting the View****: If you want to return to the original view of the plot, click on the home icon located in the top left corner of the plot area.
--   ****Viewing Data Points****: Hover your mouse over any point on the plot to see a popup that displays the index and a detailed breakdown of the agronomic case-scenario. This includes specifics on management and environmental factors, as well as the values of the trade-off components.
--   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between orbital and turntable. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
+    -   ****Rotating the Plot****: Click and hold the left mouse button while dragging over the plot to rotate and view it from different angles.
+    -   ****Zooming In and Out****: Use the scroll wheel on your mouse to zoom in for a closer look, or zoom out to see the broader perspective.
+    -   ****Resetting the View****: If you want to return to the original view of the plot, click on the home icon located in the top left corner of the plot area.
+    -   ****Viewing Data Points****: Hover your mouse over any point on the plot to see a popup that displays the index and a detailed breakdown of the agronomic case-scenario. This includes specifics on management and environmental factors, as well as the values of the trade-off components.
+    -   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between orbital and turntable. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
 
 
 ### How to interpret the visualization
