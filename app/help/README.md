@@ -1,31 +1,6 @@
 
-# Table of Contents
-
-1.  [Σommit Trade-offs analysis dashboard](#orga5e0fe5)
-    1.  [Introduction](#orgd9cf362)
-    2.  [Screenshots](#orgb260e55)
-    3.  [Installation](#orgc4bb55f)
-        1.  [Pre-requisites](#org428b2f4)
-        2.  [Windows](#org23d8a28)
-        3.  [Unix-like systems (MacOS, Linux, etc.)](#orgf660f7b)
-    4.  [How to use the dashboard](#orge0067d5)
-        1.  [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#orgc52c86f)
-        2.  [How to interact with the dashboard](#orgf54d524)
-        3.  [Filters](#orgde626a5)
-        4.  [Interacting with the plot](#org8133b7f)
-        5.  [How to interpret the visualization](#org84b5612)
-    5.  [Methodology](#org4f8d754)
-        1.  [Multiple Factor Analysis (MFA)](#orgb9b9b79)
-        2.  [MFA implementation](#orgb2de733)
-    6.  [Licensing](#orga0323ce)
-
-
-<a id="orga5e0fe5"></a>
-
 # Σommit Trade-offs analysis dashboard
 
-
-<a id="orgd9cf362"></a>
 
 ## Introduction
 
@@ -36,55 +11,8 @@ The dataset was generated taking into account over two milions agronomic case-sc
 More details on the rules and data analysis will be found on the main paper "Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. A fuzzy logic evaluation of synergies and trade-offs between agricultural production and climate change mitigation" (currently submitted to *Journal of Cleaner Production*).
 
 
-<a id="orgb260e55"></a>
-
-## Screenshots
-
-![img](./sommit_dashboard.png)
-
-
-<a id="orgc4bb55f"></a>
-
-## Installation
-
-
-<a id="org428b2f4"></a>
-
-### Pre-requisites
-
-You will need **Docker** and **Docker Compose** installed. Please refer to official install instructions for your system on the [Docker website](https://docs.docker.com/engine/install/). You'll optionally need Git installed if you want to download the dashboard through git; you can also download this repository via the GitHub interface
-
-
-<a id="org23d8a28"></a>
-
-### Windows
-
-1.  [Download this repository](https://github.com/kofm/sommit-dashboard/archive/refs/heads/main.zip). Alternatively you can clone the repository via PowerShell using the command `git clone https://github.com/kofm/sommit-dashboard`; if that's the case, skip to step 3.
-2.  Extract the ZIP file in a directory of your liking.
-3.  Inside the downloaded (or cloned) directory you will find a PowerShell script named `StartΣommitDashboard.ps1`. Execute it by double clicking it.
-4.  Wait for the container to build and start (it may take a few minutes). Then
-5.  The dashboard can be reached using you favourite browser (Firefox, Edge, Chrome, ecc.) at the following URL <http://localhost:5001>.
-
-
-<a id="orgf660f7b"></a>
-
-### Unix-like systems (MacOS, Linux, etc.)
-
-On Unix-like systems, open your favourite terminal then issue the following commands (assuming that you've git installed):
-
-    git clone https://github.com/kofm/sommit-dashboard
-    cd sommit-dashboard
-    docker-compose up -d # or `docker compose up -d` if your using Compose v2 
-
-That's it! Wait for the docker container to be built, then you can reach the container at <http://localhost:5001>
-
-
-<a id="orge0067d5"></a>
-
 ## How to use the dashboard
 
-
-<a id="orgc52c86f"></a>
 
 ### Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios
 
@@ -95,14 +23,10 @@ This dashboard present a 3D scatterplot visualization showcasing what we can sim
 -   Trade-off components (T)
 
 
-<a id="orgf54d524"></a>
-
 ### How to interact with the dashboard
 
 That's becasue some combinations do not exist.
 
-
-<a id="orgde626a5"></a>
 
 ### Filters
 
@@ -148,8 +72,6 @@ The filters in the app allow you to tailor the displayed data according to speci
     -   Crops: select from a variety of crops such as cereals, legumes, and vegetables.
 
 
-<a id="org8133b7f"></a>
-
 ### Interacting with the plot
 
 Engaging with the 3D plot in the dashboard is intuitive, and here are the various ways you can interact with it to get the most out of your experience:
@@ -160,8 +82,6 @@ Engaging with the 3D plot in the dashboard is intuitive, and here are the variou
 -   ****Viewing Data Points****: Hover your mouse over any point on the plot to see a popup that displays the index and a detailed breakdown of the agronomic case-scenario. This includes specifics on management and environmental factors, as well as the values of the trade-off components.
 -   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between orbital and turntable. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
 
-
-<a id="org84b5612"></a>
 
 ### How to interpret the visualization
 
@@ -176,12 +96,8 @@ It enables viewers to intuitively understand and evaluate the differences in EMT
 Focusing on the relative distances between the points allows to understand the differences in the combined variables. Use the colour coding as a quick reference to compare the ratings provided by the Î£ommit index. Remember that this visualisation is a high-level representation, and detailed analysis may require a deeper look into the individual variables and cases.
 
 
-<a id="org4f8d754"></a>
-
 ## Methodology
 
-
-<a id="orgb9b9b79"></a>
 
 ### Multiple Factor Analysis (MFA)
 
@@ -196,8 +112,6 @@ Here's a simplified explanation of some MFA features to help you understand how 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
 
 
-<a id="orgb2de733"></a>
-
 ### MFA implementation
 
 For statistics nerds (🤓), the following is the actual code that generated the MFA on which the dashboard relies.
@@ -209,13 +123,4 @@ For statistics nerds (🤓), the following is the actual code that generated the
       name.group = c("toc", "si", "env", "mgmt"),
       graph = FALSE
     )
-
-
-<a id="orga0323ce"></a>
-
-## Licensing
-
-The software in this repository is licensed under the Apache License 2.0. You can find the terms in the `/app/LICENSE` file.
-
-The data provided in this repository is licensed under the Creative Commons Attribution-ShareAlike (CC-BY-SA). The terms for this license can be found in the `/data/LICENSE` file.
 
