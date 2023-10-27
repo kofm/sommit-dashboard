@@ -14,7 +14,7 @@ df = pd.concat([sommit_data, mfa_ind_coord], axis=1)
 
 # App
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-app.title = "Trade-off analysis"
+app.title = "Σommit Trade-offs analysis dashboard"
 server = app.server
 
 
