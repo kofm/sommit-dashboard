@@ -1,4 +1,4 @@
-from dash_daq import Gauge, GraduatedBar
+from dash_daq import GraduatedBar
 import dash_bootstrap_components as dbc
 from dash import dcc, html
 
