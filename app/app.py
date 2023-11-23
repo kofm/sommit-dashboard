@@ -20,7 +20,7 @@ server = app.server
 
 # Filter controls
 fields_to_filter_environment = [
-    ("Precipitations", "Moisture_regime", "dropdown-moist"),
+    ("Moisture regime", "Moisture_regime", "dropdown-moist"),
     ("Temperature Regime", "Temperature_regime", "dropdown-temp"),
 ]
 
