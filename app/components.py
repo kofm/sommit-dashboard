@@ -31,19 +31,19 @@ def _render_list_item(label, value):
 
 
 def render_card_summary(row, narrative, selected=False):
-    card_title = html.H4(row["crop"].capitalize(), className="card-title")
+    card_title = html.H4(row["Crop"].capitalize(), className="card-title")
     card_subtitle = None
 
     if selected:
         card_subtitle = html.H6("Selected", className="card-subtitle mb-2 text-muted")
 
     items_to_display = [
-        {"label": "Soil texture", "value": row["soilTexture"]},
-        {"label": "Soil tillage", "value": row["tillage_after"]},
-        {"label": "Irrigation Type", "value": row["irrigation"]},
-        {"label": "Organic Nitrogen", "value": row["organic_N"]},
-        {"label": "Mineral Nitrogen", "value": row["mineral_N"]},
-        {"label": "Crop residues", "value": row["crop_residues"]},
+        {"label": "Soil texture", "value": row["Soil_texture"]},
+        {"label": "Soil tillage", "value": row["Soil_tillage_(0)"]},
+        {"label": "Irrigation Type", "value": row["Irrigation"]},
+        {"label": "Organic Nitrogen", "value": row["Organic_N_type"]},
+        {"label": "Mineral Nitrogen", "value": row["Mineral_N_type"]},
+        {"label": "Crop residues", "value": row["Crop_residues"]},
     ]
 
     card_list = html.Ul(
@@ -52,15 +52,15 @@ def render_card_summary(row, narrative, selected=False):
     )
 
     indicators_to_display = [
-        {"label": "ΔSOC (COeq)", "value": row["CO2Q"]},
-        {"label": "N2O emissions", "value": row["N2OQ"]},
-        {"label": "N-NO3 leaching", "value": row["NO3Q"]},
-        {"label": "Crop yield", "value": row["YQ"]},
+        {"label": "ΔSOC (COeq)", "value": row["ΔSOC(CO2_emissions)"], "min": -1},
+        {"label": "N2O emissions", "value": row["N2O_emissions_(CO2_eq.)"]},
+        {"label": "N-NO3 leaching", "value": row["N-NO3_leaching"]},
+        {"label": "Crop yield", "value": row["Crop_yield"]},
     ]
 
     card_indicators = dbc.Row(
         [
-            TocGauge(label=indicator["label"], value=indicator["value"], color="#324151")
+            TocGauge(label=indicator["label"], value=indicator["value"], color="#324151", min=indicator.get("min", 0))
             for indicator in indicators_to_display
         ]
     )

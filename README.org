@@ -29,8 +29,6 @@
   (org-export-to-file 'gfm "README.md" async subtreep visible-only body-only ext-plist))
 #+end_src
 
-⚠️⚠️⚠️ This software is in active development. Expect bugs and changes. ⚠️⚠️⚠️
-
 ** Introduction
 
 The Σommit Trade-offs analysis dashboard is a web-based user interface (UI) for exploring the dataset released in: Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. (2023). Dataset of agronomic case-scenarios and workflow to compute the Σommit index (0.1). Zenodo. https://doi.org/10.5281/zenodo.10014452
@@ -167,19 +165,9 @@ MFA helps us to synthesize and visualize complex and numerous data, revealing un
 
 *** MFA implementation :repo:
 
-For statistics nerds (🤓), the following is the actual R code that generated the MFA on which the dashboard relies, using the [[http://factominer.free.fr/factomethods/multiple-factor-analysis.html][FactoMineR]] R package.
+For statistics nerds (🤓), the actual R code that generated the MFA on which the dashboard relies, using the [[http://factominer.free.fr/factomethods/multiple-factor-analysis.html][FactoMineR]] R package, can be found in the =mfa/mfa.R= file.
 
-#+begin_src R
-  mfa <- FactoMineR::MFA(
-    sommit_data,
-    group = c(4, 1, 5, 8),
-    type = c("s", "s", "n", "n"),
-    name.group = c("toc", "si", "env", "mgmt"),
-    graph = FALSE
-  )
-#+end_src
-
-** Licensing :repo:
+** Licensing                                                          :repo:
 
 The software in this repository is licensed under the Apache License 2.0. You can find the terms in the =/app/LICENSE= file.
 

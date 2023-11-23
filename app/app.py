@@ -7,8 +7,8 @@ from help import tab_help
 
 
 # Read data
-sommit_data = pd.read_csv("data/sommit-data.csv")
-mfa_ind_coord = pd.read_csv("data/mfa-ind-coord.csv")
+sommit_data = pd.read_parquet("data/sommit-data.parquet")
+mfa_ind_coord = pd.read_parquet("data/mfa-ind-coord.parquet")
 df = pd.concat([sommit_data, mfa_ind_coord], axis=1)
 
 
@@ -20,13 +20,13 @@ server = app.server
 
 # Filter controls
 fields_to_filter_environment = [
-    ("Precipitations", "moistRegime", "dropdown-moist"),
-    ("Temperature Regime", "tempRegime", "dropdown-temp"),
+    ("Precipitations", "Moisture_regime", "dropdown-moist"),
+    ("Temperature Regime", "Temperature_regime", "dropdown-temp"),
 ]
 
 fields_to_filter_management = [
     ("Nitrogen Input", "N_input", "dropdown-nitrogen"),
-    ("Organic Matter Input", "OM_input_after", "dropdown-ominput"),
+    ("Organic Matter Input", "OM_input_(0)", "dropdown-ominput"),
 ]
 
 filter_control = [
@@ -37,12 +37,12 @@ filter_control = [
                     html.H4("Narrative"),
                     dcc.Dropdown(
                         [
-                            {"label": "Balanced", "value": "ΣI_N0"},
-                            {"label": "Young farmers", "value": "ΣI_N1"},
-                            {"label": "Agrochem corporation", "value": "ΣI_N2"},
-                            {"label": "CAP paying agency", "value": "ΣI_N3"},
+                            {"label": "Balanced", "value": "ΣI_NT0"},
+                            {"label": "Young farmers", "value": "ΣI_NT1_mean"},
+                            {"label": "Agrochem corporation", "value": "ΣI_NT2_mean"},
+                            {"label": "CAP paying agency", "value": "ΣI_NT3_mean"},
                         ],
-                        "ΣI_N0",
+                        "ΣI_NT0",
                         id="dropdown-narrative",
                     ),
                 ],
@@ -68,8 +68,8 @@ filter_control = [
             [
                 html.Label("Crop"),
                 dcc.Dropdown(
-                    df["crop"].unique(),
-                    ["barley", "oat", "wheat", "durum wheat"],
+                    df["Crop"].unique(),
+                    ["Barley", "Oat", "Wheat", "Durum wheat"],
                     id="dropdown-crop",
                     multi=True,
                 ),
@@ -134,18 +134,18 @@ def display_hover_data(hover_data, narrative):
 )
 def update_dist_plot(narrative, moist, temp, nitrogen, ominput, crops):
     conditions = [
-        {"column": "moistRegime", "value": moist},
-        {"column": "tempRegime", "value": temp},
+        {"column": "Moisture_regime", "value": moist},
+        {"column": "Temperature_regime", "value": temp},
         {"column": "N_input", "value": nitrogen},
-        {"column": "OM_input_after", "value": ominput},
+        {"column": "OM_input_(0)", "value": ominput},
     ]
     mask = pd.Series([True] * len(df))
     for cond in conditions:
         mask &= df[cond["column"]] == cond["value"]
     if type(crops) is str:
-        mask &= df["crop"] == crops
+        mask &= df["Crop"] == crops
     else:
-        mask &= df["crop"].isin(crops)
+        mask &= df["Crop"].isin(crops)
 
     fig = px.scatter_3d(
         df[mask],
