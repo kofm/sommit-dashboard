@@ -165,7 +165,7 @@ MFA helps us to synthesize and visualize complex and numerous data, revealing un
 
 *** MFA implementation :repo:
 
-For statistics nerds (🤓), the actual R code that generated the MFA on which the dashboard relies, using the [[http://factominer.free.fr/factomethods/multiple-factor-analysis.html][FactoMineR]] R package, can be found in the =mfa/mfa.R= file.
+For statistics nerds (🤓), the actual R code that generated the MFA on which the dashboard relies, using the [[http://factominer.free.fr/factomethods/multiple-factor-analysis.html][FactoMineR]] R package, can be found in the =R/mfa.R= file.
 
 ** Licensing                                                          :repo:
 

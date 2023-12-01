@@ -1,26 +1,26 @@
-- [Σommit Trade-offs analysis dashboard](#org7f721e1)
-  - [Introduction](#org468d4d0)
-  - [Screenshots](#org67d3e08)
-  - [Installation](#org5021846)
-    - [Pre-requisites](#orge8def6d)
-    - [Windows](#org657fb58)
-    - [Unix-like systems (MacOS, Linux, etc.)](#orga34e27e)
-  - [How to use the dashboard](#org0ac1698)
+- [Σommit Trade-offs analysis dashboard](#org5f13274)
+  - [Introduction](#org9f8c007)
+  - [Screenshots](#orgc752d46)
+  - [Installation](#org56b1b9b)
+    - [Pre-requisites](#orge0e51ac)
+    - [Windows](#org59a5a5a)
+    - [Unix-like systems (MacOS, Linux, etc.)](#orgf77f082)
+  - [How to use the dashboard](#org8317c5a)
     - [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#emt-distances)
-    - [How to interact with the dashboard](#org123a6a8)
-    - [How to interpret the visualization](#org0539415)
+    - [How to interact with the dashboard](#orgbfbcbbb)
+    - [How to interpret the visualization](#org1164b10)
   - [Methodology](#methods)
-    - [Multiple Factor Analysis (MFA)](#orgf12365e)
-    - [MFA implementation](#org1a6a9ae)
-  - [Licensing](#org1829c4b)
+    - [Multiple Factor Analysis (MFA)](#org46843a0)
+    - [MFA implementation](#orgb10ec06)
+  - [Licensing](#orgc99aa2a)
 
 
-<a id="org7f721e1"></a>
+<a id="org5f13274"></a>
 
 # Σommit Trade-offs analysis dashboard
 
 
-<a id="org468d4d0"></a>
+<a id="org9f8c007"></a>
 
 ## Introduction
 
@@ -31,26 +31,26 @@ The dataset was generated taking into account roughly two milions agronomic case
 More details on the rules and data analysis will be found on the main paper "Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. A fuzzy logic evaluation of synergies and trade-offs between agricultural production and climate change mitigation" (currently submitted to *Journal of Cleaner Production*).
 
 
-<a id="org67d3e08"></a>
+<a id="orgc752d46"></a>
 
 ## Screenshots
 
 ![img](./sommit_dashboard.png)
 
 
-<a id="org5021846"></a>
+<a id="org56b1b9b"></a>
 
 ## Installation
 
 
-<a id="orge8def6d"></a>
+<a id="orge0e51ac"></a>
 
 ### Pre-requisites
 
 You will need **Docker** and **Docker Compose** installed. Please refer to official install instructions for your system on the [Docker website](https://docs.docker.com/engine/install/). You'll optionally need Git installed if you want to download the dashboard through git; you can also download this repository via the GitHub interface
 
 
-<a id="org657fb58"></a>
+<a id="org59a5a5a"></a>
 
 ### Windows
 
@@ -61,7 +61,7 @@ You will need **Docker** and **Docker Compose** installed. Please refer to offic
 5.  The dashboard can be reached using you favourite browser (Firefox, Edge, Chrome, ecc.) at the following URL <http://localhost:5001>.
 
 
-<a id="orga34e27e"></a>
+<a id="orgf77f082"></a>
 
 ### Unix-like systems (MacOS, Linux, etc.)
 
@@ -76,7 +76,7 @@ docker-compose up -d # or `docker compose up -d` if your using Compose v2
 That's it! Wait for the docker container to be built, then you can reach the container at <http://localhost:5001>
 
 
-<a id="org0ac1698"></a>
+<a id="org8317c5a"></a>
 
 ## How to use the dashboard
 
@@ -92,7 +92,7 @@ This dashboard presents a 3D scatterplot visualization showcasing what we can si
 -   Trade-off components (T)
 
 
-<a id="org123a6a8"></a>
+<a id="orgbfbcbbb"></a>
 
 ### How to interact with the dashboard
 
@@ -149,7 +149,7 @@ This dashboard presents a 3D scatterplot visualization showcasing what we can si
     -   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
 
 
-<a id="org0539415"></a>
+<a id="org1164b10"></a>
 
 ### How to interpret the visualization
 
@@ -167,7 +167,7 @@ This visualization benefits non-experts, providing a visual aid to understand th
 ## Methodology
 
 
-<a id="orgf12365e"></a>
+<a id="org46843a0"></a>
 
 ### Multiple Factor Analysis (MFA)
 
@@ -182,14 +182,14 @@ Here's a simplified explanation of some MFA features to help you understand how 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
 
 
-<a id="org1a6a9ae"></a>
+<a id="orgb10ec06"></a>
 
 ### MFA implementation
 
-For statistics nerds (🤓), the actual R code that generated the MFA on which the dashboard relies, using the [FactoMineR](http://factominer.free.fr/factomethods/multiple-factor-analysis.html) R package, can be found in the `mfa/mfa.R` file.
+For statistics nerds (🤓), the actual R code that generated the MFA on which the dashboard relies, using the [FactoMineR](http://factominer.free.fr/factomethods/multiple-factor-analysis.html) R package, can be found in the `R/mfa.R` file.
 
 
-<a id="org1829c4b"></a>
+<a id="orgc99aa2a"></a>
 
 ## Licensing
 
