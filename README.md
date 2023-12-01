@@ -1,26 +1,26 @@
-- [Σommit Trade-offs analysis dashboard](#org65205c7)
-  - [Introduction](#org7c07e0e)
-  - [Screenshots](#orge7804de)
-  - [Installation](#orge01bb2a)
-    - [Pre-requisites](#orgea7d817)
-    - [Windows](#orgf340145)
-    - [Unix-like systems (MacOS, Linux, etc.)](#orgf1ec82e)
-  - [How to use the dashboard](#orgf069f39)
+- [Σommit Trade-offs analysis dashboard](#org7f721e1)
+  - [Introduction](#org468d4d0)
+  - [Screenshots](#org67d3e08)
+  - [Installation](#org5021846)
+    - [Pre-requisites](#orge8def6d)
+    - [Windows](#org657fb58)
+    - [Unix-like systems (MacOS, Linux, etc.)](#orga34e27e)
+  - [How to use the dashboard](#org0ac1698)
     - [Comparative visualisation of multi-dimensional EMT distances between agronomic case-scenarios](#emt-distances)
-    - [How to interact with the dashboard](#org92865a3)
-    - [How to interpret the visualization](#orgef007d4)
+    - [How to interact with the dashboard](#org123a6a8)
+    - [How to interpret the visualization](#org0539415)
   - [Methodology](#methods)
-    - [Multiple Factor Analysis (MFA)](#orgeb74c75)
-    - [MFA implementation](#orgf8b0059)
-  - [Licensing](#orgde3faa5)
+    - [Multiple Factor Analysis (MFA)](#orgf12365e)
+    - [MFA implementation](#org1a6a9ae)
+  - [Licensing](#org1829c4b)
 
 
-<a id="org65205c7"></a>
+<a id="org7f721e1"></a>
 
 # Σommit Trade-offs analysis dashboard
 
 
-<a id="org7c07e0e"></a>
+<a id="org468d4d0"></a>
 
 ## Introduction
 
@@ -31,37 +31,37 @@ The dataset was generated taking into account roughly two milions agronomic case
 More details on the rules and data analysis will be found on the main paper "Calone, R., Fiore, A., Pellis, G., Mongiano, G., & Bregaglio, S. A fuzzy logic evaluation of synergies and trade-offs between agricultural production and climate change mitigation" (currently submitted to *Journal of Cleaner Production*).
 
 
-<a id="orge7804de"></a>
+<a id="org67d3e08"></a>
 
 ## Screenshots
 
 ![img](./sommit_dashboard.png)
 
 
-<a id="orge01bb2a"></a>
+<a id="org5021846"></a>
 
 ## Installation
 
 
-<a id="orgea7d817"></a>
+<a id="orge8def6d"></a>
 
 ### Pre-requisites
 
 You will need **Docker** and **Docker Compose** installed. Please refer to official install instructions for your system on the [Docker website](https://docs.docker.com/engine/install/). You'll optionally need Git installed if you want to download the dashboard through git; you can also download this repository via the GitHub interface
 
 
-<a id="orgf340145"></a>
+<a id="org657fb58"></a>
 
 ### Windows
 
 1.  [Download this repository](https://github.com/kofm/sommit-dashboard/archive/refs/heads/main.zip). Alternatively you can clone the repository via PowerShell using the command `git clone https://github.com/kofm/sommit-dashboard`; if that's the case, skip to step 3.
 2.  Extract the ZIP file in a directory of your liking.
 3.  Inside the downloaded (or cloned) directory you will find a PowerShell script named `StartSommitDashboard.ps1`. Execute it by double clicking it.
-4.  Wait for the container to build and start (it may take a few minutes).
+4.  Wait for the container to build and start (it may take several minutes for the dataset to be processed and relevant files to be created, please be patient!).
 5.  The dashboard can be reached using you favourite browser (Firefox, Edge, Chrome, ecc.) at the following URL <http://localhost:5001>.
 
 
-<a id="orgf1ec82e"></a>
+<a id="orga34e27e"></a>
 
 ### Unix-like systems (MacOS, Linux, etc.)
 
@@ -76,7 +76,7 @@ docker-compose up -d # or `docker compose up -d` if your using Compose v2
 That's it! Wait for the docker container to be built, then you can reach the container at <http://localhost:5001>
 
 
-<a id="orgf069f39"></a>
+<a id="org0ac1698"></a>
 
 ## How to use the dashboard
 
@@ -92,7 +92,7 @@ This dashboard presents a 3D scatterplot visualization showcasing what we can si
 -   Trade-off components (T)
 
 
-<a id="org92865a3"></a>
+<a id="org123a6a8"></a>
 
 ### How to interact with the dashboard
 
@@ -149,7 +149,7 @@ This dashboard presents a 3D scatterplot visualization showcasing what we can si
     -   ****Additional Controls****: Look for the toolbar in the top right corner of the plot area. Here, you'll find tools for panning, zooming, and adjusting the rotation style between. There's also an option to take a screenshot of the current view of the plot, allowing you to save it for future reference or share with others.
 
 
-<a id="orgef007d4"></a>
+<a id="org0539415"></a>
 
 ### How to interpret the visualization
 
@@ -167,7 +167,7 @@ This visualization benefits non-experts, providing a visual aid to understand th
 ## Methodology
 
 
-<a id="orgeb74c75"></a>
+<a id="orgf12365e"></a>
 
 ### Multiple Factor Analysis (MFA)
 
@@ -182,17 +182,15 @@ Here's a simplified explanation of some MFA features to help you understand how 
 MFA helps us to synthesize and visualize complex and numerous data, revealing underlying patterns and relationships that might not be apparent when looking at the variables separately.
 
 
-<a id="orgf8b0059"></a>
+<a id="org1a6a9ae"></a>
 
 ### MFA implementation
 
 For statistics nerds (🤓), the actual R code that generated the MFA on which the dashboard relies, using the [FactoMineR](http://factominer.free.fr/factomethods/multiple-factor-analysis.html) R package, can be found in the `mfa/mfa.R` file.
 
 
-<a id="orgde3faa5"></a>
+<a id="org1829c4b"></a>
 
 ## Licensing
 
 The software in this repository is licensed under the Apache License 2.0. You can find the terms in the `/app/LICENSE` file.
-
-The data provided in this repository is licensed under the Creative Commons Attribution-ShareAlike (CC-BY-SA). The terms for this license can be found in the `/data/LICENSE` file.

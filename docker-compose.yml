@@ -1,8 +1,23 @@
 version: '3.8'
 
 services:
+  data-processor:
+        build:
+            context: R
+            dockerfile: Dockerfile
+        volumes:
+            - data-volume:/data:z
   web:
-    build: .
-    command: gunicorn --reload -b 0.0.0.0:80 app:server
-    ports:
-      - 5001:80
+        build: .
+        ports:
+            - 5001:80
+        volumes:
+            - data-volume:/data:z
+        healthcheck:
+            test: ["CMD-SHELL", "test -f /data/mfa-ind-coord.csv"]
+            interval: 10s
+            timeout: 5s
+            retries: 99
+
+volumes:
+    data-volume:

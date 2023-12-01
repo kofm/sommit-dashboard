@@ -19,7 +19,6 @@ def dropdown_factory(id, df, field, label):
 
 
 def _render_list_item(label, value):
-    # return html.Li(f"{label}: {value}", className="list-group-item")
     return html.Li(
         [
             html.Span(label, style={"float": "left"}),
@@ -52,15 +51,15 @@ def render_card_summary(row, narrative, selected=False):
     )
 
     indicators_to_display = [
-        {"label": "ΔSOC (COeq)", "value": row["ΔSOC(CO2_emissions)"], "min": -1},
-        {"label": "N2O emissions", "value": row["N2O_emissions_(CO2_eq.)"]},
-        {"label": "N-NO3 leaching", "value": row["N-NO3_leaching"]},
-        {"label": "Crop yield", "value": row["Crop_yield"]},
+        {"label": "ΔSOC (COeq)", "value": row["ΔSOC(CO2_emissions)"], "color": {"gradient": True, "ranges": {"#1cc948": [0, 0.55], "white": [0.55, 0.65], "#c91c1c": [0.65, 1]}}},
+        {"label": "N2O emissions", "value": row["N2O_emissions_(CO2_eq.)"], "color": "#234074"},
+        {"label": "N-NO3 leaching", "value": row["N-NO3_leaching"], "color": "#61399D"},
+        {"label": "Crop yield", "value": row["Crop_yield"], "color": "#0C3B2B"},
     ]
 
     card_indicators = dbc.Row(
         [
-            TocGauge(label=indicator["label"], value=indicator["value"], color="#324151", min=indicator.get("min", 0))
+            TocGauge(label=indicator["label"], value=indicator["value"], color=indicator["color"], min=indicator.get("min", 0))
             for indicator in indicators_to_display
         ]
     )
@@ -78,7 +77,7 @@ def render_card_summary(row, narrative, selected=False):
     )
 
     card_footer = dbc.CardFooter(
-        TocGauge(label="Σommit Index", value=row[narrative], color="red")
+        TocGauge(label="Σommit Index", value=row[narrative], color={"gradient": True, "ranges": {"#0F0751": [0, 0.20], "#551065": [0.20, 0.35], "#8B4254": [0.35, 0.50], "#A05E49": [0.50, 0.65], "#B3B13E": [0.65, 1]}})
     )
     card = dbc.Card(
         [card_body, card_footer],

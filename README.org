@@ -52,7 +52,7 @@ You will need *Docker* and *Docker Compose* installed. Please refer to official 
 1. [[https://github.com/kofm/sommit-dashboard/archive/refs/heads/main.zip][Download this repository]]. Alternatively you can clone the repository via PowerShell using the command =git clone https://github.com/kofm/sommit-dashboard=; if that's the case, skip to step 3.
 2. Extract the ZIP file in a directory of your liking.
 3. Inside the downloaded (or cloned) directory you will find a PowerShell script named =StartSommitDashboard.ps1=. Execute it by double clicking it.
-4. Wait for the container to build and start (it may take a few minutes).
+4. Wait for the container to build and start (it may take several minutes for the dataset to be processed and relevant files to be created, please be patient!).
 5. The dashboard can be reached using you favourite browser (Firefox, Edge, Chrome, ecc.) at the following URL http://localhost:5001.
    
 *** Unix-like systems (MacOS, Linux, etc.)
@@ -170,5 +170,3 @@ For statistics nerds (🤓), the actual R code that generated the MFA on which t
 ** Licensing                                                          :repo:
 
 The software in this repository is licensed under the Apache License 2.0. You can find the terms in the =/app/LICENSE= file.
-
-The data provided in this repository is licensed under the Creative Commons Attribution-ShareAlike (CC-BY-SA). The terms for this license can be found in the =/data/LICENSE= file.

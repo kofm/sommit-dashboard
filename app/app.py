@@ -7,8 +7,8 @@ from help import tab_help
 
 
 # Read data
-sommit_data = pd.read_parquet("data/sommit-data.parquet")
-mfa_ind_coord = pd.read_parquet("data/mfa-ind-coord.parquet")
+sommit_data = pd.read_csv("/data/sommit-data.csv")
+mfa_ind_coord = pd.read_csv("/data/mfa-ind-coord.csv")
 df = pd.concat([sommit_data, mfa_ind_coord], axis=1)
 
 
@@ -20,7 +20,7 @@ server = app.server
 
 # Filter controls
 fields_to_filter_environment = [
-    ("Moisture regime", "Moisture_regime", "dropdown-moist"),
+    ("Moisture Regime", "Moisture_regime", "dropdown-moist"),
     ("Temperature Regime", "Temperature_regime", "dropdown-temp"),
 ]
 
