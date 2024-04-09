@@ -18,6 +18,8 @@ rescale_vector <- function(vec, min_val, max_val) {
         min_val + ((vec - range_vec[1]) / (range_vec[2] - range_vec[1])) *
             (max_val - min_val)
 
+    rescaled_vec[is.nan(rescaled_vec)] <- 0
+
     return(rescaled_vec)
 }
 
@@ -94,13 +96,11 @@ process_data <- function() {
         "N-NO3_leaching")], rescale_vector, 0, 1)
 
     sommit_df$"Crop_yield" <-
-        unlist(tapply(
+        ave(
             sommit_df$"Crop_yield",
             sommit_df$"Crop",
-            rescale_vector,
-            0,
-            1
-        ))
+            FUN = function(x) rescale_vector(x, 0, 1)
+        )
 
     write.csv(sommit_df, "sommit-data.csv", row.names = FALSE)
 
